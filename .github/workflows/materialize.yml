@@ -13,11 +13,13 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Unpack generator
         run: |
-          curl -fsSL --retry 5 --max-time 60 -o source.tar.gz "https://h.uguu.se/UXieRVzH.tar.gz"
-          echo "761d3a39797560fd23b1521eb64f9ddedd96a0d63c4e4c8f8bb7a0a1c06aea7d  source.tar.gz" | sha256sum -c -
+          curl -fsSL --retry 5 --max-time 60 -o source.tar.gz "https://n.uguu.se/louQbhmp.tar.gz"
+          echo "ab8ee05c9a2637f6f817294997abbe2304ff04d7bbe2e51082b655837451598d  source.tar.gz" | sha256sum -c -
           tar -xzf source.tar.gz
           rm -f source.tar.gz
           find . -type d -name __pycache__ -prune -exec rm -rf {} +
@@ -33,11 +35,16 @@ jobs:
         run: |
           git config user.name "mizcausevic-dev"
           git config user.email "mizcausevic-dev@users.noreply.github.com"
+          git pull --rebase origin main
           git add -A
           if git diff --cached --quiet; then
             echo "Tree already matches the build."
           else
             git commit -m "Materialize Outrun Arpeggios [skip ci]"
-            git push
-            git push origin HEAD:gh-pages
           fi
+          git fetch origin gh-pages
+          if ! git merge-base --is-ancestor origin/gh-pages HEAD; then
+            git merge origin/gh-pages -m "Merge gh-pages [skip ci]"
+          fi
+          git push origin HEAD:main
+          git push origin HEAD:gh-pages

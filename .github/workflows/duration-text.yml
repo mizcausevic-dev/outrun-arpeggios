@@ -1,0 +1,52 @@
+name: duration-text
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  text:
+    if: ${{ contains(github.event.head_commit.message, 'State the measured preview') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pull rebase and correct the measured duration
+        run: |
+          git config user.name "mizcausevic-dev"
+          git config user.email "mizcausevic-dev@users.noreply.github.com"
+          git pull --rebase origin main
+          python3 - << 'PY'
+          from pathlib import Path
+          pairs = [
+              ("index.html", "This MP3 is 34.29 seconds.", "This MP3 is 34.286 seconds."),
+              ("index.html", "The film is 34.29 seconds", "The film is 34.285 seconds"),
+              ("media.html", "the film is 34.29 seconds and the MP3 is 34.29 seconds", "the film is 34.285 seconds and the MP3 is 34.286 seconds"),
+              ("media.html", "\u00b7 34.29 seconds \u00b7", "\u00b7 34.286 seconds \u00b7"),
+              ("tools/page.py", ":.2f", ":.3f"),
+              ("tools/screening.py", ":.2f", ":.3f"),
+          ]
+          changed = False
+          for name, old, new in pairs:
+              path = Path(name)
+              text = path.read_text(encoding="utf-8")
+              if old not in text:
+                  continue
+              path.write_text(text.replace(old, new), encoding="utf-8")
+              changed = True
+          raise SystemExit(0 if changed else 2)
+          PY
+          code=$?
+          if [ "$code" -eq 2 ]; then
+            echo "Duration text already says 34.286."
+            exit 0
+          fi
+          git add index.html media.html tools/page.py tools/screening.py
+          git commit -m "State the measured preview as 34.286 seconds [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          git fetch origin gh-pages
+          git push origin HEAD:gh-pages

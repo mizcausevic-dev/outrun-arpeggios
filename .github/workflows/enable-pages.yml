@@ -13,11 +13,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Update the gh-pages branch
+        with:
+          fetch-depth: 0
+      - name: Fast-forward gh-pages
         run: |
-          set +e
-          git push origin HEAD:gh-pages > /tmp/push.txt 2>&1
-          code=$?
-          message=$(tr '\n' ' ' < /tmp/push.txt)
-          echo "::error title=gh-pages push::$message"
-          exit $code
+          git push origin HEAD:gh-pages
+          git rev-parse HEAD

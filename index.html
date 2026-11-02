@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outrun Arpeggios</title>
+  <style>
+    :root {
+      --night: #140818;
+      --ink: #ffe6cf;
+      --sun: #ff7a3c;
+      --hot: #ff3d6e;
+      --gold: #ffc15a;
+      --grid: #7d5cff;
+      --muted: #e7b8c4;
+      --line: rgba(255, 196, 140, .28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: var(--night);
+      background-image:
+        linear-gradient(rgba(255, 122, 60, .14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 92, 255, .16) 1px, transparent 1px);
+      background-size: 46px 46px;
+      color: var(--ink);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    a { color: var(--gold); }
+    button, .meta, .kicker { font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .wrap { width: min(1080px, calc(100% - 28px)); margin: 0 auto; padding-bottom: 28px; }
+    .mast {
+      display: flex; justify-content: space-between; gap: 16px; align-items: end;
+      padding: 22px 0 12px;
+    }
+    .wordmark { margin: 0; letter-spacing: .18em; text-transform: uppercase; font-size: .78rem; color: var(--sun); }
+    .mast nav { display: flex; flex-wrap: wrap; gap: 12px; font-size: .82rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1; margin: 6px 0 10px; font-weight: 600; }
+    h2 { font-size: 1.35rem; margin: 0 0 8px; font-weight: 600; }
+    .hero img, audio, video, .chord img {
+      display: block; width: 100%; max-width: 100%; height: auto; background: #000;
+    }
+    .hero { margin: 0; }
+    figcaption, .meta { color: var(--muted); font-size: .82rem; }
+    .deck {
+      display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 22px;
+      margin-top: 22px; align-items: start;
+    }
+    .rail { display: flex; flex-direction: column; gap: 6px; }
+    button {
+      border: 1px solid var(--line); background: rgba(20, 8, 24, .55); color: var(--ink);
+      border-radius: 8px; padding: 8px 10px; cursor: pointer; text-align: left;
+    }
+    button[aria-pressed="true"] { background: var(--sun); color: #1a0c16; border-color: var(--sun); }
+    .switch, .phrases { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+    .panel {
+      margin: 22px 0; padding: 16px;
+      border: 1px solid var(--line);
+      background: rgba(20, 8, 24, .78);
+    }
+    .scroller { overflow-x: auto; max-width: 100%; background: #1a0c22; border-radius: 10px; }
+    .lane { position: relative; height: 188px; }
+    .harmony-lane { height: 132px; }
+    .tick {
+      position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(125, 92, 255, .35);
+    }
+    .block {
+      position: absolute; border-radius: 3px; min-width: 3px;
+    }
+    .block.cool { background: #7d5cff; }
+    .block.warm { background: var(--sun); }
+    .block.hot { background: var(--hot); box-shadow: 0 0 0 1px var(--gold); }
+    .chord-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;
+      margin: 10px 0 14px;
+    }
+    .chord {
+      margin: 0; padding: 10px; border: 1px solid var(--line); border-radius: 10px;
+      background: #241028;
+    }
+    .chord strong { display: block; color: var(--gold); font-size: 1.2rem; }
+    .legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: .8rem; color: var(--muted); }
+    .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+    .flow { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+    .flow span { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; font-size: .78rem; }
+    .table-scroll { overflow-x: auto; max-width: 100%; }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    th, td { text-align: left; padding: 7px 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    .transport { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+    @media (max-width: 720px) {
+      .mast, .deck { display: block; }
+      .rail { flex-direction: row; flex-wrap: wrap; margin-bottom: 12px; }
+      .mast nav { margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <p class="wordmark">Outrun Arpeggios</p>
+      <nav>
+        <a href="#arp">Arpeggio</a>
+        <a href="#harmony">Source harmony</a>
+        <a href="#files">Files</a>
+        <a href="#reading">Recorded reading</a>
+        <a href="media.html">Stills</a>
+        <a href="midi/arrangement.mid">Arrangement</a>
+      </nav>
+    </header>
+    <figure class="hero">
+      <img src="art/hero.jpg" width="1280" height="720" alt="Illustration of a sunset grid with a skyline of arpeggio accents. Not a photograph of a studio or of performers.">
+      <figcaption>Illustration of a sunset grid. The skyline follows an accent contour. Not a photograph.</figcaption>
+    </figure>
+    <section class="deck">
+      <div class="rail" id="rail"></div>
+      <div>
+        <p class="kicker" id="kicker"></p>
+        <h1 id="title">Horizon Ladder</h1>
+        <p id="identity"></p>
+        <p class="meta" id="facts"></p>
+        <p id="rhythm"></p>
+        <p id="source"></p>
+        <p id="accent-copy"></p>
+        <p class="meta" id="limits"></p>
+        <p class="meta" id="departures"></p>
+        <div class="switch">
+          <button type="button" id="var-a" aria-pressed="true">Variation A</button>
+          <button type="button" id="var-b" aria-pressed="false">Variation B</button>
+        </div>
+        <div class="phrases" id="phrases"></div>
+        <div class="transport">
+          <button type="button" id="play">Play arpeggio</button>
+          <button type="button" id="harmony-toggle" aria-pressed="true">Source harmony</button>
+          <span id="transport-label">Space plays. J and K change study.</span>
+        </div>
+      </div>
+    </section>
+    <section class="panel" id="arp">
+      <h2>Arpeggio</h2>
+      <p>These notes are fetched from the arpeggio MIDI file. Taller, hotter bars are louder accents. The chord is not drawn in this lane.</p>
+      <div class="scroller" id="arp-scroll">
+        <div class="lane" id="arp-lane"></div>
+      </div>
+      <p class="legend">
+        <span><i class="swatch" style="background:#7d5cff"></i>softer attacks</span>
+        <span><i class="swatch" style="background:#ff7a3c"></i>velocity 90 to 109</span>
+        <span><i class="swatch" style="background:#ff3d6e"></i>velocity 110 and up</span>
+      </p>
+      <p class="meta" id="status">Reading the MIDI.</p>
+    </section>
+    <section class="panel" id="harmony">
+      <h2>Source harmony</h2>
+      <p>This reference is fetched from its own MIDI file. It shows the chord the arpeggio outlines. It is not merged into the arpeggio lane.</p>
+      <div class="chord-grid" id="chord-cards"></div>
+      <div class="scroller" id="harmony-scroll">
+        <div class="lane harmony-lane" id="harmony-lane"></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>File contract</h2>
+      <div class="flow">
+        <span>Canonical score</span><span>MIDI</span><span>Reopened validation</span><span>MP3</span><span>Film</span>
+        <span>Stills</span><span>Social drafts</span><span>Catalog</span><span>This page</span>
+      </div>
+      <h2>Set map</h2>
+      <ul>
+        <li><strong>s01 Horizon Ladder</strong>: s01.arp.a, s01.harmony.a, s01.arp.b, s01.harmony.b</li><li><strong>s02 Dotted Gate</strong>: s02.arp.a, s02.harmony.a, s02.arp.b, s02.harmony.b</li><li><strong>s03 Turn and Hold</strong>: s03.arp.a, s03.harmony.a, s03.arp.b, s03.harmony.b</li><li><strong>s04 Held Peak</strong>: s04.arp.a, s04.harmony.a, s04.arp.b, s04.harmony.b</li><li><strong>s05 Offbeat Shimmer</strong>: s05.arp.a, s05.harmony.a, s05.arp.b, s05.harmony.b</li><li><strong>s06 Triplet Glow</strong>: s06.arp.a, s06.harmony.a, s06.arp.b, s06.harmony.b</li><li><strong>s07 Wide Leap</strong>: s07.arp.a, s07.harmony.a, s07.arp.b, s07.harmony.b</li><li><strong>s08 Pair and Hold</strong>: s08.arp.a, s08.harmony.a, s08.arp.b, s08.harmony.b</li>
+      </ul>
+      <p>Arpeggios are monophonic, MIDI 48 to 84. Harmonic references use MIDI 48 to 76, at most four notes, and are not part of the core count. C4 is 60.</p>
+      <p>Use either the combined arrangement or the separate parts. Do not stack the part files on top of the combined file.</p>
+    </section>
+    <section class="panel" id="files">
+      <h2>Files</h2>
+      <p class="meta">Validation PASS. Core arpeggios 16. Harmonic references 16. <a href="midi/validation-Cursor.json">validation report</a> · <a href="catalog/catalog-Cursor.json">catalog</a> · <a href="score/canonical-score-Cursor.json">score</a> · <a href="score/identity-Cursor.md">identity</a></p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Part</th><th>Role</th><th>Var</th><th>Count</th><th>BPM</th><th>Notes</th></tr></thead>
+          <tbody><tr><td><a href="midi/s01-horizon-ladder/arp-a.mid">s01.arp.a</a></td><td>arpeggio</td><td>a</td><td>core</td><td>112</td><td>96</td></tr><tr><td><a href="midi/s01-horizon-ladder/harmony-a.mid">s01.harmony.a</a></td><td>harmonic-reference</td><td>a</td><td>harmonic reference</td><td>112</td><td>48</td></tr><tr><td><a href="midi/s01-horizon-ladder/arp-b.mid">s01.arp.b</a></td><td>arpeggio</td><td>b</td><td>core</td><td>112</td><td>96</td></tr><tr><td><a href="midi/s01-horizon-ladder/harmony-b.mid">s01.harmony.b</a></td><td>harmonic-reference</td><td>b</td><td>harmonic reference</td><td>112</td><td>48</td></tr><tr><td><a href="midi/s02-dotted-gate/arp-a.mid">s02.arp.a</a></td><td>arpeggio</td><td>a</td><td>core</td><td>104</td><td>80</td></tr><tr><td><a href="midi/s02-dotted-gate/harmony-a.mid">s02.harmony.a</a></td><td>harmonic-reference</td><td>a</td><td>harmonic reference</td><td>104</td><td>48</td></tr><tr><td><a href="midi/s02-dotted-gate/arp-b.mid">s02.arp.b</a></td><td>arpeggio</td><td>b</td><td>core</td><td>104</td><td>64</td></tr><tr><td><a href="midi/s02-dotted-gate/harmony-b.mid">s02.harmony.b</a></td><td>harmonic-reference</td><td>b</td><td>harmonic reference</td><td>104</td><td>48</td></tr><tr><td><a href="midi/s03-turn-and-hold/arp-a.mid">s03.arp.a</a></td><td>arpeggio</td><td>a</td><td>core</td><td>120</td><td>64</td></tr><tr><td><a href="midi/s03-turn-and-hold/harmony-a.mid">s03.harmony.a</a></td><td>harmonic-reference</td><td>a</td><td>harmonic reference</td><td>120</td><td>48</td></tr><tr><td><a href="midi/s03-turn-and-hold/arp-b.mid">s03.arp.b</a></td><td>arpeggio</td><td>b</td><td>core</td><td>120</td><td>64</td></tr><tr><td><a href="midi/s03-turn-and-hold/harmony-b.mid">s03.harmony.b</a></td><td>harmonic-reference</td><td>b</td><td>harmonic reference</td><td>120</td><td>48</td></tr><tr><td><a href="midi/s04-held-peak/arp-a.mid">s04.arp.a</a></td><td>arpeggio</td><td>a</td><td>core</td><td>100</td><td>24</td></tr><tr><td><a href="midi/s04-held-peak/harmony-a.mid">s04.harmony.a</a></td><td>harmonic-reference</td><td>a</td><td>harmonic reference</td><td>100</td><td>24</td></tr><tr><td><a href="midi/s04-held-peak/arp-b.mid">s04.arp.b</a></td><td>arpeggio</td><td>b</td><td>core</td><td>100</td><td>24</td></tr><tr><td><a href="midi/s04-held-peak/harmony-b.mid">s04.harmony.b</a></td><td>harmonic-reference</td><td>b</td><td>harmonic reference</td><td>100</td><td>24</td></tr><tr><td><a href="midi/s05-offbeat-shimmer/arp-a.mid">s05.arp.a</a></td><td>arpeggio</td><td>a</td><td>core</td><td>124</td><td>80</td></tr><tr><td><a href="midi/s05-offbeat-shimmer/harmony-a.mid">s05.harmony.a</a></td><td>harmonic-reference</td><td>a</td><td>harmonic reference</td><td>124</td><td>48</td></tr><tr><td><a href="midi/s05-offbeat-shimmer/arp-b.mid">s05.arp.b</a></td><td>arpeggio</td><td>b</td><td>core</td><td>124</td><td>80</td></tr><tr><td><a href="midi/s05-offbeat-shimmer/harmony-b.mid">s05.harmony.b</a></td><td>harmonic-reference</td><td>b</td><td>harmonic reference</td><td>124</td><td>48</td></tr><tr><td><a href="midi/s06-triplet-glow/arp-a.mid">s06.arp.a</a></td><td>arpeggio</td><td>a</td><td>core</td><td>108</td><td>96</td></tr><tr><td><a href="midi/s06-triplet-glow/harmony-a.mid">s06.harmony.a</a></td><td>harmonic-reference</td><td>a</td><td>harmonic reference</td><td>108</td><td>48</td></tr><tr><td><a href="midi/s06-triplet-glow/arp-b.mid">s06.arp.b</a></td><td>arpeggio</td><td>b</td><td>core</td><td>108</td><td>64</td></tr><tr><td><a href="midi/s06-triplet-glow/harmony-b.mid">s06.harmony.b</a></td><td>harmonic-reference</td><td>b</td><td>harmonic reference</td><td>108</td><td>48</td></tr><tr><td><a href="midi/s07-wide-leap/arp-a.mid">s07.arp.a</a></td><td>arpeggio</td><td>a</td><td>core</td><td>96</td><td>32</td></tr><tr><td><a href="midi/s07-wide-leap/harmony-a.mid">s07.harmony.a</a></td><td>harmonic-reference</td><td>a</td><td>harmonic reference</td><td>96</td><td>48</td></tr><tr><td><a href="midi/s07-wide-leap/arp-b.mid">s07.arp.b</a></td><td>arpeggio</td><td>b</td><td>core</td><td>96</td><td>48</td></tr><tr><td><a href="midi/s07-wide-leap/harmony-b.mid">s07.harmony.b</a></td><td>harmonic-reference</td><td>b</td><td>harmonic reference</td><td>96</td><td>48</td></tr><tr><td><a href="midi/s08-pair-and-hold/arp-a.mid">s08.arp.a</a></td><td>arpeggio</td><td>a</td><td>core</td><td>118</td><td>96</td></tr><tr><td><a href="midi/s08-pair-and-hold/harmony-a.mid">s08.harmony.a</a></td><td>harmonic-reference</td><td>a</td><td>harmonic reference</td><td>118</td><td>48</td></tr><tr><td><a href="midi/s08-pair-and-hold/arp-b.mid">s08.arp.b</a></td><td>arpeggio</td><td>b</td><td>core</td><td>118</td><td>48</td></tr><tr><td><a href="midi/s08-pair-and-hold/harmony-b.mid">s08.harmony.b</a></td><td>harmonic-reference</td><td>b</td><td>harmonic reference</td><td>118</td><td>48</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="panel" id="reading">
+      <h2>Recorded reading</h2>
+      <p class="kicker">Study 01 variation A, all 16 bars, arpeggio plus harmonic reference</p>
+      <p>This MP3 is 34.29 seconds. preview, not a master. The film is 34.29 seconds and shows preview, not master.</p>
+      <audio controls preload="metadata" src="preview/preview.mp3"></audio>
+      <p><a href="preview/preview.mp3">preview/preview.mp3</a> · <a href="preview/preview-manifest-Cursor.txt">preview manifest</a></p>
+      <video controls preload="metadata" poster="film/poster.jpg" width="1280" height="720">
+        <source src="film/preview.mp4" type="video/mp4">
+        <track kind="captions" src="film/preview.vtt" srclang="en" label="English" default>
+      </video>
+      <p><a href="film/preview.mp4">film/preview.mp4</a> · <a href="film/preview.vtt">film/preview.vtt</a> · <a href="film/poster.jpg">poster</a></p>
+    </section>
+    <section class="panel">
+      <p>No program changes are encoded. A conventional GM player will normally use its default piano program for pitched channels unless configured otherwise; compatible GM channel 10 percussion is treated separately. Player behavior may vary.</p>
+      <p>No human listening audition was performed for this build.</p>
+      <p>The GitHub repository is https://github.com/mizcausevic-dev/outrun-arpeggios and it is public. The catalog page is https://mizcausevic-dev.github.io/outrun-arpeggios/ .</p>
+      <p>Article draft, not posted: <a href="articles/medium-draft-Cursor.md">Markdown</a> · <a href="articles/medium-paste-Cursor.txt">plain text</a></p>
+    </section>
+  </div>
+  <script id="pack" type="application/json">{"studies": [{"id": "s01", "title": "Horizon Ladder", "bpm": 112, "bars": 16, "collection": "A natural minor", "tonic": "A", "identity": "Horizon Ladder moves through Am, F, C, G. Variation A is six eighths climbing from the downbeat, with a gap before each attack and a rest through beat 4. The register shifts with each chord. Variation B is the same six tones in reverse, entering on the second 16th and holding across the middle of the bar.", "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.", "voicing": "The harmonic reference holds Am, F, C, G as written triads. It is a separate file and it is not part of the core count.", "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.", "accent": "Velocity climbs inside the bar and peaks on the fifth attack. Phrase 3 adds another step to that peak.", "departures": [], "harmonic_rhythm": "Source harmony: Am, F, C, G. Each chord lasts 4 bars.", "source_harmony": "The harmonic reference holds Am, F, C, G as written triads. It is a separate file and it is not part of the core count.", "rhythm_a": "six eighths climbing from the downbeat, with a gap before each attack and a rest through beat 4", "rhythm_b": "the same six tones in reverse, entering on the second 16th and holding across the middle of the bar", "changes": ["Am", "F", "C", "G"], "change_bars": [4, 4, 4, 4], "phrases": [{"name": "Climb", "start_bar": 0, "bars": 4}, {"name": "Lift", "start_bar": 4, "bars": 4}, {"name": "Crest", "start_bar": 8, "bars": 4}, {"name": "Cadence", "start_bar": 12, "bars": 4}], "tempo_us": 535714, "spell": ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]}, {"id": "s02", "title": "Dotted Gate", "bpm": 104, "bars": 16, "collection": "D natural minor", "tonic": "D", "identity": "Dotted Gate moves through Dm, Bb, F, C. Variation A is five attacks on a dotted-eighth grid, each shorter than the grid so the notes do not touch. The register shifts with each chord. Variation B is four attacks: two quarters, a short answer, and a quarter, leaping octaves instead of climbing.", "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.", "voicing": "The harmonic reference holds Dm, Bb, F, C as written triads. It is a separate file and it is not part of the core count.", "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.", "accent": "The fourth dotted attack is the loud one. Each four-bar phrase raises that accent.", "departures": [], "harmonic_rhythm": "Source harmony: Dm, Bb, F, C. Each chord lasts 4 bars.", "source_harmony": "The harmonic reference holds Dm, Bb, F, C as written triads. It is a separate file and it is not part of the core count.", "rhythm_a": "five attacks on a dotted-eighth grid, each shorter than the grid so the notes do not touch", "rhythm_b": "four attacks: two quarters, a short answer, and a quarter, leaping octaves instead of climbing", "changes": ["Dm", "Bb", "F", "C"], "change_bars": [4, 4, 4, 4], "phrases": [{"name": "Gate", "start_bar": 0, "bars": 4}, {"name": "Answer", "start_bar": 4, "bars": 4}, {"name": "Octave", "start_bar": 8, "bars": 4}, {"name": "Land", "start_bar": 12, "bars": 4}], "tempo_us": 576923, "spell": ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "Bb", "B"]}, {"id": "s03", "title": "Turn and Hold", "bpm": 120, "bars": 16, "collection": "E natural minor", "tonic": "E", "identity": "Turn and Hold moves through Em, C, G, D. Variation A is a long downbeat, two short turns, then a held note through beat 4. The register shifts with each chord. Variation B is the turn moves to the front of the bar and the held note moves to beat 4.", "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.", "voicing": "The harmonic reference holds Em, C, G, D as written triads. It is a separate file and it is not part of the core count.", "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.", "accent": "In phrases 1 and 3 the short turn is loudest. In phrases 2 and 4 the held note is loudest.", "departures": [], "harmonic_rhythm": "Source harmony: Em, C, G, D. Each chord lasts 4 bars.", "source_harmony": "The harmonic reference holds Em, C, G, D as written triads. It is a separate file and it is not part of the core count.", "rhythm_a": "a long downbeat, two short turns, then a held note through beat 4", "rhythm_b": "the turn moves to the front of the bar and the held note moves to beat 4", "changes": ["Em", "C", "G", "D"], "change_bars": [4, 4, 4, 4], "phrases": [{"name": "Plate", "start_bar": 0, "bars": 4}, {"name": "Turn", "start_bar": 4, "bars": 4}, {"name": "Rise", "start_bar": 8, "bars": 4}, {"name": "Hold", "start_bar": 12, "bars": 4}], "tempo_us": 500000, "spell": ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]}, {"id": "s04", "title": "Held Peak", "bpm": 100, "bars": 8, "collection": "B natural minor", "tonic": "B", "identity": "Held Peak moves through Bm, G, D, A. Variation A is two short pickups and one held peak, then silence for the rest of the bar. The register shifts with each chord. Variation B is the held peak moves onto the downbeat and the pickups answer after beat 3.", "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.", "voicing": "The harmonic reference holds Bm, G, D, A as written triads. It is a separate file and it is not part of the core count.", "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.", "accent": "The held note gets louder on every bar. Variation B puts that growing accent on beat 1.", "departures": [], "harmonic_rhythm": "Source harmony: Bm, G, D, A. Each chord lasts 2 bars.", "source_harmony": "The harmonic reference holds Bm, G, D, A as written triads. It is a separate file and it is not part of the core count.", "rhythm_a": "two short pickups and one held peak, then silence for the rest of the bar", "rhythm_b": "the held peak moves onto the downbeat and the pickups answer after beat 3", "changes": ["Bm", "G", "D", "A"], "change_bars": [2, 2, 2, 2], "phrases": [{"name": "Bloom", "start_bar": 0, "bars": 2}, {"name": "Open", "start_bar": 2, "bars": 2}, {"name": "Leap", "start_bar": 4, "bars": 2}, {"name": "Peak", "start_bar": 6, "bars": 2}], "tempo_us": 600000, "spell": ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]}, {"id": "s05", "title": "Offbeat Shimmer", "bpm": 124, "bars": 16, "collection": "F# natural minor", "tonic": "F#", "identity": "Offbeat Shimmer moves through F#m, D, A, E. Variation A is five offbeat attacks. The downbeat is empty. The longest note sits after beat 3. The register shifts with each chord. Variation B is five on-beat attacks, with octave leaps and a short last 16th.", "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.", "voicing": "The harmonic reference holds F#m, D, A, E as written triads. It is a separate file and it is not part of the core count.", "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.", "accent": "The long offbeat after beat 3 is the peak in variation A. Variation B accents the opening octave.", "departures": [], "harmonic_rhythm": "Source harmony: F#m, D, A, E. Each chord lasts 4 bars.", "source_harmony": "The harmonic reference holds F#m, D, A, E as written triads. It is a separate file and it is not part of the core count.", "rhythm_a": "five offbeat attacks. The downbeat is empty. The longest note sits after beat 3", "rhythm_b": "five on-beat attacks, with octave leaps and a short last 16th", "changes": ["F#m", "D", "A", "E"], "change_bars": [4, 4, 4, 4], "phrases": [{"name": "Shimmer", "start_bar": 0, "bars": 4}, {"name": "Push", "start_bar": 4, "bars": 4}, {"name": "High", "start_bar": 8, "bars": 4}, {"name": "Fold", "start_bar": 12, "bars": 4}], "tempo_us": 483871, "spell": ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]}, {"id": "s06", "title": "Triplet Glow", "bpm": 108, "bars": 16, "collection": "C natural minor", "tonic": "C", "identity": "Triplet Glow moves through Cm, Ab, Eb, Bb. Variation A is six triplet eighths with a short gap inside each triplet, not a sixteenth grid. The register shifts with each chord. Variation B is four duple attacks. The last of them is the 9th above the same triad.", "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.", "voicing": "The harmonic reference holds Cm, Ab, Eb, Bb as written triads. It is a separate file and it is not part of the core count.", "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.", "accent": "For eight bars the accent sits on the third triplet. After that it moves to the last triplet.", "departures": [], "harmonic_rhythm": "Source harmony: Cm, Ab, Eb, Bb. Each chord lasts 4 bars.", "source_harmony": "The harmonic reference holds Cm, Ab, Eb, Bb as written triads. It is a separate file and it is not part of the core count.", "rhythm_a": "six triplet eighths with a short gap inside each triplet, not a sixteenth grid", "rhythm_b": "four duple attacks. The last of them is the 9th above the same triad", "changes": ["Cm", "Ab", "Eb", "Bb"], "change_bars": [4, 4, 4, 4], "phrases": [{"name": "Glow", "start_bar": 0, "bars": 4}, {"name": "Cycle", "start_bar": 4, "bars": 4}, {"name": "Color", "start_bar": 8, "bars": 4}, {"name": "Resolve", "start_bar": 12, "bars": 4}], "tempo_us": 555556, "spell": ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"]}, {"id": "s07", "title": "Wide Leap", "bpm": 96, "bars": 16, "collection": "G natural minor", "tonic": "G", "identity": "Wide Leap moves through Gm, Eb, Bb, F. Variation A is two notes per bar, after the downbeat and on beat 3, with a long gap between them. The register shifts with each chord. Variation B is three notes that start on the downbeat variation A left empty.", "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.", "voicing": "The harmonic reference holds Gm, Eb, Bb, F as written triads. It is a separate file and it is not part of the core count.", "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.", "accent": "The upper leap grows louder across all 16 bars. The lower note stays quiet.", "departures": ["Variation B bar 16 uses F#4 (66) once, between F3 and C4, under the F chord. It is flagged."], "harmonic_rhythm": "Source harmony: Gm, Eb, Bb, F. Each chord lasts 4 bars.", "source_harmony": "The harmonic reference holds Gm, Eb, Bb, F as written triads. It is a separate file and it is not part of the core count.", "rhythm_a": "two notes per bar, after the downbeat and on beat 3, with a long gap between them", "rhythm_b": "three notes that start on the downbeat variation A left empty", "changes": ["Gm", "Eb", "Bb", "F"], "change_bars": [4, 4, 4, 4], "phrases": [{"name": "Leap", "start_bar": 0, "bars": 4}, {"name": "Span", "start_bar": 4, "bars": 4}, {"name": "Wide", "start_bar": 8, "bars": 4}, {"name": "Close", "start_bar": 12, "bars": 4}], "tempo_us": 625000, "spell": ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"]}, {"id": "s08", "title": "Pair and Hold", "bpm": 118, "bars": 16, "collection": "F natural minor", "tonic": "F", "identity": "Pair and Hold moves through Fm, Db, Ab, Eb. Variation A is a pair of sixteenths, a longer leap, another sixteenth pair, then a hold. The bar is not a continuous sixteenth line. The register shifts with each chord. Variation B is three notes only: a late pickup, a short leap, and a hold. The sixteenth pairs are gone.", "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.", "voicing": "The harmonic reference holds Fm, Db, Ab, Eb as written triads. It is a separate file and it is not part of the core count.", "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.", "accent": "The sixteenth pairs stay soft. The final hold is louder in the second half of the study.", "departures": [], "harmonic_rhythm": "Source harmony: Fm, Db, Ab, Eb. Each chord lasts 4 bars.", "source_harmony": "The harmonic reference holds Fm, Db, Ab, Eb as written triads. It is a separate file and it is not part of the core count.", "rhythm_a": "a pair of sixteenths, a longer leap, another sixteenth pair, then a hold. The bar is not a continuous sixteenth line", "rhythm_b": "three notes only: a late pickup, a short leap, and a hold. The sixteenth pairs are gone", "changes": ["Fm", "Db", "Ab", "Eb"], "change_bars": [4, 4, 4, 4], "phrases": [{"name": "Pair", "start_bar": 0, "bars": 4}, {"name": "Answer", "start_bar": 4, "bars": 4}, {"name": "Lift", "start_bar": 8, "bars": 4}, {"name": "Hold", "start_bar": 12, "bars": 4}], "tempo_us": 508475, "spell": ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"]}], "parts": [{"id": "s01.arp.a", "study_id": "s01", "role": "arpeggio", "variation": "a", "path": "midi/s01-horizon-ladder/arp-a.mid"}, {"id": "s01.harmony.a", "study_id": "s01", "role": "harmonic-reference", "variation": "a", "path": "midi/s01-horizon-ladder/harmony-a.mid"}, {"id": "s01.arp.b", "study_id": "s01", "role": "arpeggio", "variation": "b", "path": "midi/s01-horizon-ladder/arp-b.mid"}, {"id": "s01.harmony.b", "study_id": "s01", "role": "harmonic-reference", "variation": "b", "path": "midi/s01-horizon-ladder/harmony-b.mid"}, {"id": "s02.arp.a", "study_id": "s02", "role": "arpeggio", "variation": "a", "path": "midi/s02-dotted-gate/arp-a.mid"}, {"id": "s02.harmony.a", "study_id": "s02", "role": "harmonic-reference", "variation": "a", "path": "midi/s02-dotted-gate/harmony-a.mid"}, {"id": "s02.arp.b", "study_id": "s02", "role": "arpeggio", "variation": "b", "path": "midi/s02-dotted-gate/arp-b.mid"}, {"id": "s02.harmony.b", "study_id": "s02", "role": "harmonic-reference", "variation": "b", "path": "midi/s02-dotted-gate/harmony-b.mid"}, {"id": "s03.arp.a", "study_id": "s03", "role": "arpeggio", "variation": "a", "path": "midi/s03-turn-and-hold/arp-a.mid"}, {"id": "s03.harmony.a", "study_id": "s03", "role": "harmonic-reference", "variation": "a", "path": "midi/s03-turn-and-hold/harmony-a.mid"}, {"id": "s03.arp.b", "study_id": "s03", "role": "arpeggio", "variation": "b", "path": "midi/s03-turn-and-hold/arp-b.mid"}, {"id": "s03.harmony.b", "study_id": "s03", "role": "harmonic-reference", "variation": "b", "path": "midi/s03-turn-and-hold/harmony-b.mid"}, {"id": "s04.arp.a", "study_id": "s04", "role": "arpeggio", "variation": "a", "path": "midi/s04-held-peak/arp-a.mid"}, {"id": "s04.harmony.a", "study_id": "s04", "role": "harmonic-reference", "variation": "a", "path": "midi/s04-held-peak/harmony-a.mid"}, {"id": "s04.arp.b", "study_id": "s04", "role": "arpeggio", "variation": "b", "path": "midi/s04-held-peak/arp-b.mid"}, {"id": "s04.harmony.b", "study_id": "s04", "role": "harmonic-reference", "variation": "b", "path": "midi/s04-held-peak/harmony-b.mid"}, {"id": "s05.arp.a", "study_id": "s05", "role": "arpeggio", "variation": "a", "path": "midi/s05-offbeat-shimmer/arp-a.mid"}, {"id": "s05.harmony.a", "study_id": "s05", "role": "harmonic-reference", "variation": "a", "path": "midi/s05-offbeat-shimmer/harmony-a.mid"}, {"id": "s05.arp.b", "study_id": "s05", "role": "arpeggio", "variation": "b", "path": "midi/s05-offbeat-shimmer/arp-b.mid"}, {"id": "s05.harmony.b", "study_id": "s05", "role": "harmonic-reference", "variation": "b", "path": "midi/s05-offbeat-shimmer/harmony-b.mid"}, {"id": "s06.arp.a", "study_id": "s06", "role": "arpeggio", "variation": "a", "path": "midi/s06-triplet-glow/arp-a.mid"}, {"id": "s06.harmony.a", "study_id": "s06", "role": "harmonic-reference", "variation": "a", "path": "midi/s06-triplet-glow/harmony-a.mid"}, {"id": "s06.arp.b", "study_id": "s06", "role": "arpeggio", "variation": "b", "path": "midi/s06-triplet-glow/arp-b.mid"}, {"id": "s06.harmony.b", "study_id": "s06", "role": "harmonic-reference", "variation": "b", "path": "midi/s06-triplet-glow/harmony-b.mid"}, {"id": "s07.arp.a", "study_id": "s07", "role": "arpeggio", "variation": "a", "path": "midi/s07-wide-leap/arp-a.mid"}, {"id": "s07.harmony.a", "study_id": "s07", "role": "harmonic-reference", "variation": "a", "path": "midi/s07-wide-leap/harmony-a.mid"}, {"id": "s07.arp.b", "study_id": "s07", "role": "arpeggio", "variation": "b", "path": "midi/s07-wide-leap/arp-b.mid"}, {"id": "s07.harmony.b", "study_id": "s07", "role": "harmonic-reference", "variation": "b", "path": "midi/s07-wide-leap/harmony-b.mid"}, {"id": "s08.arp.a", "study_id": "s08", "role": "arpeggio", "variation": "a", "path": "midi/s08-pair-and-hold/arp-a.mid"}, {"id": "s08.harmony.a", "study_id": "s08", "role": "harmonic-reference", "variation": "a", "path": "midi/s08-pair-and-hold/harmony-a.mid"}, {"id": "s08.arp.b", "study_id": "s08", "role": "arpeggio", "variation": "b", "path": "midi/s08-pair-and-hold/arp-b.mid"}, {"id": "s08.harmony.b", "study_id": "s08", "role": "harmonic-reference", "variation": "b", "path": "midi/s08-pair-and-hold/harmony-b.mid"}]}</script>
+  <script>
+    const pack = JSON.parse(document.getElementById("pack").textContent);
+    const rail = document.getElementById("rail");
+    const phrases = document.getElementById("phrases");
+    const arpLane = document.getElementById("arp-lane");
+    const harmonyLane = document.getElementById("harmony-lane");
+    const arpScroll = document.getElementById("arp-scroll");
+    const status = document.getElementById("status");
+    let studyId = "s01";
+    let variation = "a";
+    let arpNotes = [];
+    let harmonyNotes = [];
+    let hearHarmony = true;
+    let audio = null;
+    let playing = false;
+    let followId = 0;
+    let rollWidth = 1200;
+
+    function study() {
+      return pack.studies.find((item) => item.id === studyId);
+    }
+    function pitchName(pitch) {
+      return study().spell[pitch % 12] + (Math.floor(pitch / 12) - 1);
+    }
+    function readVlq(view, offset) {
+      let value = 0;
+      let byte = 0;
+      do {
+        byte = view.getUint8(offset);
+        offset += 1;
+        value = (value << 7) | (byte & 0x7f);
+      } while (byte & 0x80);
+      return [value, offset];
+    }
+    function parseMidi(buffer) {
+      const view = new DataView(buffer);
+      if (String.fromCharCode(view.getUint8(0), view.getUint8(1), view.getUint8(2), view.getUint8(3)) !== "MThd" || view.getUint16(12) !== 960) {
+        throw new Error("unexpected MIDI header");
+      }
+      const tracks = view.getUint16(10);
+      let offset = 14;
+      const notes = [];
+      for (let track = 0; track < tracks; track += 1) {
+        if (String.fromCharCode(view.getUint8(offset), view.getUint8(offset + 1), view.getUint8(offset + 2), view.getUint8(offset + 3)) !== "MTrk") {
+          throw new Error("missing track");
+        }
+        const length = view.getUint32(offset + 4);
+        offset += 8;
+        const end = offset + length;
+        let tick = 0;
+        let running = 0;
+        const open = new Map();
+        while (offset < end) {
+          let delta;
+          [delta, offset] = readVlq(view, offset);
+          tick += delta;
+          let byte = view.getUint8(offset);
+          if (byte >= 0x80) {
+            running = byte;
+            offset += 1;
+          }
+          if (running === 0xff) {
+            offset += 1;
+            let metaLen;
+            [metaLen, offset] = readVlq(view, offset);
+            offset += metaLen;
+            continue;
+          }
+          const kind = running & 0xf0;
+          const data1 = byte < 0x80 ? byte : view.getUint8(offset);
+          if (byte >= 0x80) offset += 1;
+          let data2 = 0;
+          if (kind !== 0xc0 && kind !== 0xd0) {
+            data2 = view.getUint8(offset);
+            offset += 1;
+          }
+          const key = (running & 0x0f) + ":" + data1;
+          if (kind === 0x90 && data2 > 0) open.set(key, { tick: tick, velocity: data2 });
+          else if (kind === 0x80 || (kind === 0x90 && data2 === 0)) {
+            const started = open.get(key);
+            if (started) {
+              notes.push({ pitch: data1, start: started.tick, duration: tick - started.tick, velocity: started.velocity });
+              open.delete(key);
+            }
+          }
+        }
+      }
+      notes.sort((a, b) => a.start - b.start || a.pitch - b.pitch);
+      return notes;
+    }
+    function partPath(role) {
+      const found = pack.parts.find((part) => part.study_id === studyId && part.role === role && part.variation === variation);
+      if (!found) throw new Error("missing " + role);
+      return found.path;
+    }
+    function heat(velocity) {
+      if (velocity >= 110) return "hot";
+      if (velocity >= 90) return "warm";
+      return "cool";
+    }
+    function renderCopy() {
+      const item = study();
+      document.getElementById("kicker").textContent = item.id + "  " + item.bpm + " BPM  " + item.bars + " bars";
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("identity").textContent = item.identity;
+      document.getElementById("facts").textContent = item.collection + ". Tonic reference " + item.tonic + ".";
+      document.getElementById("rhythm").textContent = variation === "a" ? item.rhythm_a : item.rhythm_b;
+      document.getElementById("source").textContent = item.source_harmony + " " + item.harmonic_rhythm;
+      document.getElementById("accent-copy").textContent = item.accent;
+      document.getElementById("limits").textContent = item.limitations;
+      document.getElementById("departures").textContent = item.departures.length ? item.departures.join(" ") : "No pitch in this study is flagged as a departure.";
+      document.getElementById("transport-label").textContent = item.title + " " + variation.toUpperCase() + ". Space plays. J and K change study.";
+      for (const button of rail.querySelectorAll("button")) button.setAttribute("aria-pressed", button.dataset.id === studyId ? "true" : "false");
+      document.getElementById("var-a").setAttribute("aria-pressed", variation === "a" ? "true" : "false");
+      document.getElementById("var-b").setAttribute("aria-pressed", variation === "b" ? "true" : "false");
+      phrases.innerHTML = "";
+      item.phrases.forEach((phrase) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = phrase.name;
+        button.addEventListener("click", () => {
+          arpScroll.scrollTo({ left: Math.max(0, (phrase.start_bar / item.bars) * rollWidth - 12), behavior: "smooth" });
+        });
+        phrases.appendChild(button);
+      });
+    }
+    function paintLane(host, notes, tall) {
+      host.innerHTML = "";
+      host.style.width = rollWidth + "px";
+      const item = study();
+      const container = item.bars * 4 * 960;
+      for (let bar = 0; bar <= item.bars; bar += 1) {
+        const tick = document.createElement("div");
+        tick.className = "tick";
+        tick.style.left = (bar / item.bars) * rollWidth + "px";
+        host.appendChild(tick);
+      }
+      if (!notes.length) return;
+      const low = Math.min(...notes.map((note) => note.pitch));
+      const high = Math.max(...notes.map((note) => note.pitch));
+      const span = Math.max(1, high - low);
+      const ceiling = tall ? 118 : 78;
+      notes.forEach((note) => {
+        const block = document.createElement("div");
+        block.className = "block " + heat(note.velocity);
+        block.title = pitchName(note.pitch) + " velocity " + note.velocity;
+        block.dataset.velocity = String(note.velocity);
+        block.dataset.pitch = String(note.pitch);
+        const y = 12 + (1 - (note.pitch - low) / span) * ceiling;
+        const h = 8 + (note.velocity / 127) * (tall ? 40 : 28);
+        block.style.left = (note.start / container) * rollWidth + "px";
+        block.style.width = Math.max(3, (note.duration / container) * rollWidth - 1) + "px";
+        block.style.top = y + "px";
+        block.style.height = h + "px";
+        host.appendChild(block);
+      });
+    }
+    function paintChords() {
+      const item = study();
+      const board = document.getElementById("chord-cards");
+      board.innerHTML = "";
+      let bar = 0;
+      item.changes.forEach((name, index) => {
+        const span = item.change_bars[index];
+        const start = bar * 4 * 960;
+        const end = (bar + span) * 4 * 960;
+        const heard = harmonyNotes.filter((note) => note.start >= start && note.start < end);
+        const pitches = Array.from(new Set(heard.map((note) => note.pitch))).sort((a, b) => a - b);
+        const card = document.createElement("article");
+        card.className = "chord";
+        const title = document.createElement("strong");
+        title.textContent = name;
+        const body = document.createElement("p");
+        body.textContent = pitches.length ? pitches.map(pitchName).join(" ") : "No reference notes in this region.";
+        card.appendChild(title);
+        card.appendChild(body);
+        board.appendChild(card);
+        bar += span;
+      });
+    }
+    function draw() {
+      const item = study();
+      rollWidth = Math.max(760, item.bars * 168);
+      paintLane(arpLane, arpNotes, true);
+      paintLane(harmonyLane, harmonyNotes, false);
+      paintChords();
+      const hot = arpNotes.filter((note) => note.velocity >= 110).length;
+      status.textContent = arpNotes.length + " arpeggio notes from the part file. " + hot + " accents at velocity 110 or higher. " + harmonyNotes.length + " reference notes stay in the chord panel.";
+    }
+    async function loadStudy() {
+      stopPlayback();
+      renderCopy();
+      status.textContent = "Reading the MIDI.";
+      try {
+        const arpRes = await fetch(partPath("arpeggio"));
+        const chordRes = await fetch(partPath("harmonic-reference"));
+        if (!arpRes.ok || !chordRes.ok) throw new Error("MIDI request failed");
+        arpNotes = parseMidi(await arpRes.arrayBuffer());
+        harmonyNotes = parseMidi(await chordRes.arrayBuffer());
+        draw();
+      } catch (error) {
+        arpNotes = [];
+        harmonyNotes = [];
+        status.textContent = "The MIDI did not load. " + error.message;
+      }
+    }
+    function freq(pitch) {
+      return 440 * Math.pow(2, (pitch - 69) / 12);
+    }
+    function schedule(ctx, note, origin, amount, type) {
+      const item = study();
+      const seconds = (tick) => tick / 960 * item.tempo_us / 1000000;
+      const when = origin + seconds(note.start);
+      const duration = Math.max(0.05, seconds(note.duration));
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.value = freq(note.pitch);
+      const level = amount * (note.velocity / 110);
+      const attack = Math.min(0.012, duration * 0.2);
+      gain.gain.setValueAtTime(0.0001, when);
+      gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, level), when + attack);
+      gain.gain.exponentialRampToValueAtTime(0.0001, when + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(when);
+      osc.stop(when + duration + 0.02);
+    }
+    function stopPlayback() {
+      playing = false;
+      cancelAnimationFrame(followId);
+      if (audio) audio.close();
+      audio = null;
+      document.getElementById("play").textContent = "Play arpeggio";
+    }
+    function playLine() {
+      if (!arpNotes.length) return;
+      stopPlayback();
+      const ctx = new AudioContext();
+      audio = ctx;
+      playing = true;
+      document.getElementById("play").textContent = "Stop";
+      const origin = ctx.currentTime + 0.05;
+      arpNotes.forEach((note) => schedule(ctx, note, origin, 0.07, "square"));
+      if (hearHarmony) harmonyNotes.forEach((note) => schedule(ctx, note, origin, 0.025, "sine"));
+      const item = study();
+      const container = item.bars * 4 * 60 / item.bpm;
+      const follow = () => {
+        if (!playing || !audio) return;
+        if (audio.currentTime - origin < container) followId = requestAnimationFrame(follow);
+        else stopPlayback();
+      };
+      follow();
+    }
+    function stepStudy(direction) {
+      const index = pack.studies.findIndex((item) => item.id === studyId);
+      studyId = pack.studies[(index + direction + pack.studies.length) % pack.studies.length].id;
+      loadStudy();
+    }
+    pack.studies.forEach((item) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.dataset.id = item.id;
+      button.textContent = item.id.slice(1) + " " + item.title;
+      button.addEventListener("click", () => { studyId = item.id; loadStudy(); });
+      rail.appendChild(button);
+    });
+    document.getElementById("var-a").addEventListener("click", () => { variation = "a"; loadStudy(); });
+    document.getElementById("var-b").addEventListener("click", () => { variation = "b"; loadStudy(); });
+    document.getElementById("play").addEventListener("click", () => { if (playing) stopPlayback(); else playLine(); });
+    document.getElementById("harmony-toggle").addEventListener("click", () => {
+      hearHarmony = !hearHarmony;
+      document.getElementById("harmony-toggle").setAttribute("aria-pressed", hearHarmony ? "true" : "false");
+    });
+    window.addEventListener("keydown", (event) => {
+      const target = event.target;
+      if (target && target.closest && target.closest("video, audio, input, textarea")) return;
+      if (event.code === "Space") {
+        event.preventDefault();
+        if (playing) stopPlayback(); else playLine();
+      } else if (event.key === "j" || event.key === "J") stepStudy(-1);
+      else if (event.key === "k" || event.key === "K") stepStudy(1);
+    });
+    loadStudy();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1279 @@
+{
+  "arrangement": {
+    "agreement": "PASS",
+    "bytes": 1410,
+    "format": 1,
+    "path": "midi/arrangement.mid",
+    "ppq": 960,
+    "sha256": "4713201919e9aa13b32e9f91dee477b77a81f5a00eed249206f6857dded0f5b0",
+    "tracks": 3
+  },
+  "catalog_path": "catalog/catalog-Cursor.json",
+  "catalog_sha256": "8b7f22cc2fffd77072277ef4442e625d5ae1bb82386d52fba460f7be1913d0e6",
+  "errors": [],
+  "files": [
+    {
+      "bytes": 933,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 96,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 535714
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 112.00005973336519,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 96,
+      "path": "midi/s01-horizon-ladder/arp-a.mid",
+      "ppq": 960,
+      "requested_bpm": 112,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "90a90f69d31f6a86597839e837e9e11461c583a26f1dc2a03ea3b83b86e4e548",
+      "tempo_us": 535714,
+      "tracks": 1
+    },
+    {
+      "bytes": 479,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 535714
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 112.00005973336519,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s01-horizon-ladder/harmony-a.mid",
+      "ppq": 960,
+      "requested_bpm": 112,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "e855066b8b3acc49dbac6e55b445bced35a87924d583af2a70ad5b682b224e2b",
+      "tempo_us": 535714,
+      "tracks": 1
+    },
+    {
+      "bytes": 934,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 96,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 535714
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 112.00005973336519,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 96,
+      "path": "midi/s01-horizon-ladder/arp-b.mid",
+      "ppq": 960,
+      "requested_bpm": 112,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "c140ce8ea9d65cc153a867b19a7e33a8f39d6d1a1684fe94663321c2f1b3cac5",
+      "tempo_us": 535714,
+      "tracks": 1
+    },
+    {
+      "bytes": 480,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 535714
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 112.00005973336519,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s01-horizon-ladder/harmony-b.mid",
+      "ppq": 960,
+      "requested_bpm": 112,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "fc899d8809bcb758f893b195d551bd852ba079abfe53d970a63784a11e4e5a71",
+      "tempo_us": 535714,
+      "tracks": 1
+    },
+    {
+      "bytes": 789,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 80,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 576923
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 104.00001386666851,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 80,
+      "path": "midi/s02-dotted-gate/arp-a.mid",
+      "ppq": 960,
+      "requested_bpm": 104,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "b066888683905bdef9ab6d7d82ec33a487b74ba73d26eb1df3dec98639d0aef5",
+      "tempo_us": 576923,
+      "tracks": 1
+    },
+    {
+      "bytes": 479,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 576923
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 104.00001386666851,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s02-dotted-gate/harmony-a.mid",
+      "ppq": 960,
+      "requested_bpm": 104,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "41a3cbd0a4531d802a24ee3bc857b903946ecaea64bb600137ba8c31ff0dfd75",
+      "tempo_us": 576923,
+      "tracks": 1
+    },
+    {
+      "bytes": 677,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 64,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 576923
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 104.00001386666851,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 64,
+      "path": "midi/s02-dotted-gate/arp-b.mid",
+      "ppq": 960,
+      "requested_bpm": 104,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "be5118672de8b9a83f6f4b1a5b49747ae38c05d628e36260ffca5cf35812bbd7",
+      "tempo_us": 576923,
+      "tracks": 1
+    },
+    {
+      "bytes": 480,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 576923
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 104.00001386666851,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s02-dotted-gate/harmony-b.mid",
+      "ppq": 960,
+      "requested_bpm": 104,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "36d4d8ea9b22e70b9b7023885ec0bca6ac432ca1ae2d61676b2bb9981b46dd34",
+      "tempo_us": 576923,
+      "tracks": 1
+    },
+    {
+      "bytes": 661,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 64,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 500000
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 120.0,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 64,
+      "path": "midi/s03-turn-and-hold/arp-a.mid",
+      "ppq": 960,
+      "requested_bpm": 120,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "bf65658e60da7bdf799967080efa7de56c7ea22f7f6b96af1ec64246f3dc95f7",
+      "tempo_us": 500000,
+      "tracks": 1
+    },
+    {
+      "bytes": 479,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 500000
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 120.0,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s03-turn-and-hold/harmony-a.mid",
+      "ppq": 960,
+      "requested_bpm": 120,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "1da3cbf20973c2b39e0adf7ac901261625d8ea2699ad8d6beddecd09b5812cd0",
+      "tempo_us": 500000,
+      "tracks": 1
+    },
+    {
+      "bytes": 677,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 64,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 500000
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 120.0,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 64,
+      "path": "midi/s03-turn-and-hold/arp-b.mid",
+      "ppq": 960,
+      "requested_bpm": 120,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "30009d345d56a9a1264bfedea3a6eb6f97e1a7a5969e92b5bb025b526ecd13db",
+      "tempo_us": 500000,
+      "tracks": 1
+    },
+    {
+      "bytes": 480,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 500000
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 120.0,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s03-turn-and-hold/harmony-b.mid",
+      "ppq": 960,
+      "requested_bpm": 120,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "1464de154d20685b317d4edca2a67552d3113866753a2acbf06bb36cd3a5ea5a",
+      "tempo_us": 500000,
+      "tracks": 1
+    },
+    {
+      "bytes": 277,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 30720,
+        "meter": "4/4",
+        "notes": 24,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 600000
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 100.0,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 24,
+      "path": "midi/s04-held-peak/arp-a.mid",
+      "ppq": 960,
+      "requested_bpm": 100,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "d6195ef45e9368abbe7fe3fad5137f744469eb1b0eae854efffa5a5a7597a963",
+      "tempo_us": 600000,
+      "tracks": 1
+    },
+    {
+      "bytes": 271,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 30720,
+        "meter": "4/4",
+        "notes": 24,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 600000
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 100.0,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 24,
+      "path": "midi/s04-held-peak/harmony-a.mid",
+      "ppq": 960,
+      "requested_bpm": 100,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "cfc085751ed39de8b05412b294506241188004209b52bd9a08565cf23118c71e",
+      "tempo_us": 600000,
+      "tracks": 1
+    },
+    {
+      "bytes": 293,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 30720,
+        "meter": "4/4",
+        "notes": 24,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 600000
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 100.0,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 24,
+      "path": "midi/s04-held-peak/arp-b.mid",
+      "ppq": 960,
+      "requested_bpm": 100,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "5681b50ec8595e81031d48a6a11d4b1e062683e5baa92ff61d656eaf2c917494",
+      "tempo_us": 600000,
+      "tracks": 1
+    },
+    {
+      "bytes": 272,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 30720,
+        "meter": "4/4",
+        "notes": 24,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 600000
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 100.0,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 24,
+      "path": "midi/s04-held-peak/harmony-b.mid",
+      "ppq": 960,
+      "requested_bpm": 100,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "dada7039b717f4ad15d2c730728c7ece189f8a8a192d884896704dd53e5b1bc7",
+      "tempo_us": 600000,
+      "tracks": 1
+    },
+    {
+      "bytes": 854,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 80,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 483871
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 123.99999173333389,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 80,
+      "path": "midi/s05-offbeat-shimmer/arp-a.mid",
+      "ppq": 960,
+      "requested_bpm": 124,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "403cd483ced3d0c236947a27761f6d688147d1be55d8df20436bfee8c906ae23",
+      "tempo_us": 483871,
+      "tracks": 1
+    },
+    {
+      "bytes": 479,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 483871
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 123.99999173333389,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s05-offbeat-shimmer/harmony-a.mid",
+      "ppq": 960,
+      "requested_bpm": 124,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "edd045937f394b864b83f2d990a030993cc2553ad192676778b4524c201fd3af",
+      "tempo_us": 483871,
+      "tracks": 1
+    },
+    {
+      "bytes": 821,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 80,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 483871
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 123.99999173333389,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 80,
+      "path": "midi/s05-offbeat-shimmer/arp-b.mid",
+      "ppq": 960,
+      "requested_bpm": 124,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "a1cd42aef4ff46ece3e5ede3da491a7cd7ead33edc32972ea75fe0ff994b2d50",
+      "tempo_us": 483871,
+      "tracks": 1
+    },
+    {
+      "bytes": 480,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 483871
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 123.99999173333389,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s05-offbeat-shimmer/harmony-b.mid",
+      "ppq": 960,
+      "requested_bpm": 124,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "99624c9d31f99a554002ef4462e5f82234e4ad3945cd3748a1cd4237357785ff",
+      "tempo_us": 483871,
+      "tracks": 1
+    },
+    {
+      "bytes": 917,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 96,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 555556
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 107.99991360006912,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 96,
+      "path": "midi/s06-triplet-glow/arp-a.mid",
+      "ppq": 960,
+      "requested_bpm": 108,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "8a99ce2e57c7360350b0a55927a5bc6986fb0a4b728e448157c285d7d9cd642c",
+      "tempo_us": 555556,
+      "tracks": 1
+    },
+    {
+      "bytes": 479,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 555556
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 107.99991360006912,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s06-triplet-glow/harmony-a.mid",
+      "ppq": 960,
+      "requested_bpm": 108,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "6600b5e03af7643e78d7b1d9c73feef1fc70230b6f2f5fd0433fc98f33c78031",
+      "tempo_us": 555556,
+      "tracks": 1
+    },
+    {
+      "bytes": 693,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 64,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 555556
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 107.99991360006912,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 64,
+      "path": "midi/s06-triplet-glow/arp-b.mid",
+      "ppq": 960,
+      "requested_bpm": 108,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "6d69244f597505a9a8a8ea3c2b1925da4965a03ab33a0aab1302347de280277d",
+      "tempo_us": 555556,
+      "tracks": 1
+    },
+    {
+      "bytes": 480,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 555556
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 107.99991360006912,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s06-triplet-glow/harmony-b.mid",
+      "ppq": 960,
+      "requested_bpm": 108,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "ed9cd67643de2d43787b77ff6f47f4eb03b0b3ac63ce6650dcb8d3733a99e6f1",
+      "tempo_us": 555556,
+      "tracks": 1
+    },
+    {
+      "bytes": 374,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 32,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 625000
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 96.0,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 32,
+      "path": "midi/s07-wide-leap/arp-a.mid",
+      "ppq": 960,
+      "requested_bpm": 96,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "1742514d8f55e9fe4537cd1cde4ab8da4a33c417cec8b42e35b47274e991381a",
+      "tempo_us": 625000,
+      "tracks": 1
+    },
+    {
+      "bytes": 479,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 625000
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 96.0,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s07-wide-leap/harmony-a.mid",
+      "ppq": 960,
+      "requested_bpm": 96,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "e93cbc888694805a7359db115a613fa3a596a4cfa43dd2e9078cc8430c4783db",
+      "tempo_us": 625000,
+      "tracks": 1
+    },
+    {
+      "bytes": 533,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 625000
+      },
+      "core": true,
+      "departures": 1,
+      "effective_bpm": 96.0,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 48,
+      "outside_collection": 1,
+      "path": "midi/s07-wide-leap/arp-b.mid",
+      "ppq": 960,
+      "requested_bpm": 96,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "b3b34ce1b713dc3a3a9cc0b9960029b4dd79191a4ad5212612a604efa009831f",
+      "tempo_us": 625000,
+      "tracks": 1
+    },
+    {
+      "bytes": 480,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 625000
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 96.0,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s07-wide-leap/harmony-b.mid",
+      "ppq": 960,
+      "requested_bpm": 96,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "43caaffdf61e23de0405398bb30fd6864850322f11239bd10b13ff618a5f2476",
+      "tempo_us": 625000,
+      "tracks": 1
+    },
+    {
+      "bytes": 981,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 96,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 508475
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 117.99990166674861,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 96,
+      "path": "midi/s08-pair-and-hold/arp-a.mid",
+      "ppq": 960,
+      "requested_bpm": 118,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "cddf3bb2aa85fa727db67784f33e05dffcde7681b8c77d82ca57e1365f1056ff",
+      "tempo_us": 508475,
+      "tracks": 1
+    },
+    {
+      "bytes": 479,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 508475
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 117.99990166674861,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s08-pair-and-hold/harmony-a.mid",
+      "ppq": 960,
+      "requested_bpm": 118,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "ee3b76d9e3ae5565193171e1fa1b1b1fa50ec0b8a4d6b343093a127791da8187",
+      "tempo_us": 508475,
+      "tracks": 1
+    },
+    {
+      "bytes": 534,
+      "channels": [
+        0
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 508475
+      },
+      "core": true,
+      "departures": 0,
+      "effective_bpm": 117.99990166674861,
+      "format": 0,
+      "max_polyphony": 1,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s08-pair-and-hold/arp-b.mid",
+      "ppq": 960,
+      "requested_bpm": 118,
+      "role": "arpeggio",
+      "score_agreement": "PASS",
+      "sha256": "5a59999b44cbfd2a391df9842564a2b80c077a7db10bfc9a7cb163ee9764211b",
+      "tempo_us": 508475,
+      "tracks": 1
+    },
+    {
+      "bytes": 480,
+      "channels": [
+        1
+      ],
+      "checks": {
+        "eot": 61440,
+        "meter": "4/4",
+        "notes": 48,
+        "overlap": "PASS",
+        "parse": "PASS",
+        "ppq": 960,
+        "tempo": 508475
+      },
+      "core": false,
+      "departures": 0,
+      "effective_bpm": 117.99990166674861,
+      "format": 0,
+      "max_polyphony": 3,
+      "meter": "4/4",
+      "notes": 48,
+      "path": "midi/s08-pair-and-hold/harmony-b.mid",
+      "ppq": 960,
+      "requested_bpm": 118,
+      "role": "harmonic-reference",
+      "score_agreement": "PASS",
+      "sha256": "525ebf468cd851fce0c409e2f272cc18765374b33074a559d9751fa169fa2a90",
+      "tempo_us": 508475,
+      "tracks": 1
+    }
+  ],
+  "generator_version": "1.0.0",
+  "identity_check": {
+    "method": "Variation A attack-time tuples differ across the eight studies. No study uses a continuous sixteenth-note template. Variation B changes rhythm and contour, not only velocity.",
+    "studies": [
+      {
+        "a": 96,
+        "attack_tuples": [
+          {
+            "duration": 400,
+            "offset": 0
+          },
+          {
+            "duration": 400,
+            "offset": 480
+          },
+          {
+            "duration": 400,
+            "offset": 960
+          },
+          {
+            "duration": 400,
+            "offset": 1440
+          },
+          {
+            "duration": 400,
+            "offset": 1920
+          },
+          {
+            "duration": 400,
+            "offset": 2400
+          }
+        ],
+        "b": 96,
+        "register": [
+          50,
+          84
+        ],
+        "study_id": "s01",
+        "velocity": [
+          64,
+          127
+        ]
+      },
+      {
+        "a": 80,
+        "attack_tuples": [
+          {
+            "duration": 600,
+            "offset": 0
+          },
+          {
+            "duration": 600,
+            "offset": 720
+          },
+          {
+            "duration": 600,
+            "offset": 1440
+          },
+          {
+            "duration": 600,
+            "offset": 2160
+          },
+          {
+            "duration": 600,
+            "offset": 2880
+          }
+        ],
+        "b": 64,
+        "register": [
+          48,
+          82
+        ],
+        "study_id": "s02",
+        "velocity": [
+          70,
+          125
+        ]
+      },
+      {
+        "a": 64,
+        "attack_tuples": [
+          {
+            "duration": 900,
+            "offset": 0
+          },
+          {
+            "duration": 400,
+            "offset": 960
+          },
+          {
+            "duration": 400,
+            "offset": 1440
+          },
+          {
+            "duration": 1200,
+            "offset": 2400
+          }
+        ],
+        "b": 64,
+        "register": [
+          48,
+          79
+        ],
+        "study_id": "s03",
+        "velocity": [
+          66,
+          122
+        ]
+      },
+      {
+        "a": 24,
+        "attack_tuples": [
+          {
+            "duration": 420,
+            "offset": 0
+          },
+          {
+            "duration": 420,
+            "offset": 480
+          },
+          {
+            "duration": 1680,
+            "offset": 960
+          }
+        ],
+        "b": 24,
+        "register": [
+          50,
+          78
+        ],
+        "study_id": "s04",
+        "velocity": [
+          64,
+          121
+        ]
+      },
+      {
+        "a": 80,
+        "attack_tuples": [
+          {
+            "duration": 200,
+            "offset": 240
+          },
+          {
+            "duration": 440,
+            "offset": 720
+          },
+          {
+            "duration": 200,
+            "offset": 1680
+          },
+          {
+            "duration": 680,
+            "offset": 2160
+          },
+          {
+            "duration": 400,
+            "offset": 3120
+          }
+        ],
+        "b": 80,
+        "register": [
+          50,
+          83
+        ],
+        "study_id": "s05",
+        "velocity": [
+          66,
+          122
+        ]
+      },
+      {
+        "a": 96,
+        "attack_tuples": [
+          {
+            "duration": 520,
+            "offset": 0
+          },
+          {
+            "duration": 520,
+            "offset": 640
+          },
+          {
+            "duration": 520,
+            "offset": 1280
+          },
+          {
+            "duration": 520,
+            "offset": 1920
+          },
+          {
+            "duration": 520,
+            "offset": 2560
+          },
+          {
+            "duration": 520,
+            "offset": 3200
+          }
+        ],
+        "b": 64,
+        "register": [
+          48,
+          84
+        ],
+        "study_id": "s06",
+        "velocity": [
+          64,
+          122
+        ]
+      },
+      {
+        "a": 32,
+        "attack_tuples": [
+          {
+            "duration": 900,
+            "offset": 480
+          },
+          {
+            "duration": 1400,
+            "offset": 1920
+          }
+        ],
+        "b": 48,
+        "register": [
+          51,
+          82
+        ],
+        "study_id": "s07",
+        "velocity": [
+          62,
+          120
+        ]
+      },
+      {
+        "a": 96,
+        "attack_tuples": [
+          {
+            "duration": 180,
+            "offset": 0
+          },
+          {
+            "duration": 180,
+            "offset": 240
+          },
+          {
+            "duration": 800,
+            "offset": 960
+          },
+          {
+            "duration": 180,
+            "offset": 1920
+          },
+          {
+            "duration": 180,
+            "offset": 2160
+          },
+          {
+            "duration": 700,
+            "offset": 2880
+          }
+        ],
+        "b": 48,
+        "register": [
+          49,
+          84
+        ],
+        "study_id": "s08",
+        "velocity": [
+          70,
+          122
+        ]
+      }
+    ]
+  },
+  "listening": "No human listening audition was performed for this build.",
+  "negative_tests": {
+    "boundary_rejected_at_write": "PASS",
+    "monophonic_overlap_detected": "PASS"
+  },
+  "pack_id": "outrun-arpeggios",
+  "percussion_map": {
+    "36": "Acoustic Bass Drum (GM), channel 10"
+  },
+  "repair_note": "No repairs were applied. This report is the first validation pass of the delivered bytes.",
+  "repairs": [],
+  "result": "PASS",
+  "rules": [
+    "file exists and parses",
+    "PPQ 960",
+    "encoded tempo and 4/4 meter",
+    "one end-of-track at the declared container",
+    "explicit note pairing",
+    "boundaries, velocity, range, monophonic arpeggio, harmonic reference polyphony cap",
+    "percussion limited to GM note 36 on channel 10",
+    "note-offs precede note-ons that share a tick",
+    "no program changes or other channel messages",
+    "reopened notes match the canonical score",
+    "arrangement musical tracks match the individual files and carry no tempo"
+  ],
+  "score_path": "score/canonical-score-Cursor.json",
+  "score_sha256": "fc82c0bddba11aed14c2f70ef8ee5b9eab8fc3c66269483910841dd1523bdaf2",
+  "validator_version": "1.0.0"
+}

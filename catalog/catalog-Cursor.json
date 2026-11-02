@@ -1,0 +1,1030 @@
+{
+  "arrangement": {
+    "bpm": 112,
+    "container_ticks": 61440,
+    "description": "Study 01 variation A arpeggio with harmonic reference A. The chord is not inside the arpeggio file.",
+    "format": 1,
+    "id": "arrangement-preview-s01a",
+    "meter": "4/4",
+    "path": "midi/arrangement.mid",
+    "tempo_us": 535714,
+    "tracks": [
+      {
+        "channel": null,
+        "name": "Conductor",
+        "source_part": null
+      },
+      {
+        "channel": 0,
+        "name": "Arpeggio",
+        "source_part": "s01.arp.a"
+      },
+      {
+        "channel": 1,
+        "name": "Harmonic Reference",
+        "source_part": "s01.harmony.a"
+      }
+    ]
+  },
+  "c4": 60,
+  "catalog_version": "1.0.0",
+  "core_part_count": 16,
+  "generator_version": "1.0.0",
+  "meter": {
+    "bar_ticks": 3840,
+    "denominator": 4,
+    "numerator": 4
+  },
+  "microtiming": "offset is 0; performed_start = nominal_start",
+  "note_policy": "note-only MIDI. Filters, chorus, and slides are not encoded.",
+  "pack_id": "outrun-arpeggios",
+  "pack_name": "Outrun Arpeggios",
+  "parts": [
+    {
+      "bpm": 112,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s01.arp.a",
+      "monophonic": true,
+      "notes": 96,
+      "path": "midi/s01-horizon-ladder/arp-a.mid",
+      "role": "arpeggio",
+      "study_id": "s01",
+      "variation": "a"
+    },
+    {
+      "bpm": 112,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s01.harmony.a",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s01-horizon-ladder/harmony-a.mid",
+      "role": "harmonic-reference",
+      "study_id": "s01",
+      "variation": "a"
+    },
+    {
+      "bpm": 112,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s01.arp.b",
+      "monophonic": true,
+      "notes": 96,
+      "path": "midi/s01-horizon-ladder/arp-b.mid",
+      "role": "arpeggio",
+      "study_id": "s01",
+      "variation": "b"
+    },
+    {
+      "bpm": 112,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s01.harmony.b",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s01-horizon-ladder/harmony-b.mid",
+      "role": "harmonic-reference",
+      "study_id": "s01",
+      "variation": "b"
+    },
+    {
+      "bpm": 104,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s02.arp.a",
+      "monophonic": true,
+      "notes": 80,
+      "path": "midi/s02-dotted-gate/arp-a.mid",
+      "role": "arpeggio",
+      "study_id": "s02",
+      "variation": "a"
+    },
+    {
+      "bpm": 104,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s02.harmony.a",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s02-dotted-gate/harmony-a.mid",
+      "role": "harmonic-reference",
+      "study_id": "s02",
+      "variation": "a"
+    },
+    {
+      "bpm": 104,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s02.arp.b",
+      "monophonic": true,
+      "notes": 64,
+      "path": "midi/s02-dotted-gate/arp-b.mid",
+      "role": "arpeggio",
+      "study_id": "s02",
+      "variation": "b"
+    },
+    {
+      "bpm": 104,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s02.harmony.b",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s02-dotted-gate/harmony-b.mid",
+      "role": "harmonic-reference",
+      "study_id": "s02",
+      "variation": "b"
+    },
+    {
+      "bpm": 120,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s03.arp.a",
+      "monophonic": true,
+      "notes": 64,
+      "path": "midi/s03-turn-and-hold/arp-a.mid",
+      "role": "arpeggio",
+      "study_id": "s03",
+      "variation": "a"
+    },
+    {
+      "bpm": 120,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s03.harmony.a",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s03-turn-and-hold/harmony-a.mid",
+      "role": "harmonic-reference",
+      "study_id": "s03",
+      "variation": "a"
+    },
+    {
+      "bpm": 120,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s03.arp.b",
+      "monophonic": true,
+      "notes": 64,
+      "path": "midi/s03-turn-and-hold/arp-b.mid",
+      "role": "arpeggio",
+      "study_id": "s03",
+      "variation": "b"
+    },
+    {
+      "bpm": 120,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s03.harmony.b",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s03-turn-and-hold/harmony-b.mid",
+      "role": "harmonic-reference",
+      "study_id": "s03",
+      "variation": "b"
+    },
+    {
+      "bpm": 100,
+      "channel": 0,
+      "container_bars": 8,
+      "core": true,
+      "id": "s04.arp.a",
+      "monophonic": true,
+      "notes": 24,
+      "path": "midi/s04-held-peak/arp-a.mid",
+      "role": "arpeggio",
+      "study_id": "s04",
+      "variation": "a"
+    },
+    {
+      "bpm": 100,
+      "channel": 1,
+      "container_bars": 8,
+      "core": false,
+      "id": "s04.harmony.a",
+      "monophonic": false,
+      "notes": 24,
+      "path": "midi/s04-held-peak/harmony-a.mid",
+      "role": "harmonic-reference",
+      "study_id": "s04",
+      "variation": "a"
+    },
+    {
+      "bpm": 100,
+      "channel": 0,
+      "container_bars": 8,
+      "core": true,
+      "id": "s04.arp.b",
+      "monophonic": true,
+      "notes": 24,
+      "path": "midi/s04-held-peak/arp-b.mid",
+      "role": "arpeggio",
+      "study_id": "s04",
+      "variation": "b"
+    },
+    {
+      "bpm": 100,
+      "channel": 1,
+      "container_bars": 8,
+      "core": false,
+      "id": "s04.harmony.b",
+      "monophonic": false,
+      "notes": 24,
+      "path": "midi/s04-held-peak/harmony-b.mid",
+      "role": "harmonic-reference",
+      "study_id": "s04",
+      "variation": "b"
+    },
+    {
+      "bpm": 124,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s05.arp.a",
+      "monophonic": true,
+      "notes": 80,
+      "path": "midi/s05-offbeat-shimmer/arp-a.mid",
+      "role": "arpeggio",
+      "study_id": "s05",
+      "variation": "a"
+    },
+    {
+      "bpm": 124,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s05.harmony.a",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s05-offbeat-shimmer/harmony-a.mid",
+      "role": "harmonic-reference",
+      "study_id": "s05",
+      "variation": "a"
+    },
+    {
+      "bpm": 124,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s05.arp.b",
+      "monophonic": true,
+      "notes": 80,
+      "path": "midi/s05-offbeat-shimmer/arp-b.mid",
+      "role": "arpeggio",
+      "study_id": "s05",
+      "variation": "b"
+    },
+    {
+      "bpm": 124,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s05.harmony.b",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s05-offbeat-shimmer/harmony-b.mid",
+      "role": "harmonic-reference",
+      "study_id": "s05",
+      "variation": "b"
+    },
+    {
+      "bpm": 108,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s06.arp.a",
+      "monophonic": true,
+      "notes": 96,
+      "path": "midi/s06-triplet-glow/arp-a.mid",
+      "role": "arpeggio",
+      "study_id": "s06",
+      "variation": "a"
+    },
+    {
+      "bpm": 108,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s06.harmony.a",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s06-triplet-glow/harmony-a.mid",
+      "role": "harmonic-reference",
+      "study_id": "s06",
+      "variation": "a"
+    },
+    {
+      "bpm": 108,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s06.arp.b",
+      "monophonic": true,
+      "notes": 64,
+      "path": "midi/s06-triplet-glow/arp-b.mid",
+      "role": "arpeggio",
+      "study_id": "s06",
+      "variation": "b"
+    },
+    {
+      "bpm": 108,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s06.harmony.b",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s06-triplet-glow/harmony-b.mid",
+      "role": "harmonic-reference",
+      "study_id": "s06",
+      "variation": "b"
+    },
+    {
+      "bpm": 96,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s07.arp.a",
+      "monophonic": true,
+      "notes": 32,
+      "path": "midi/s07-wide-leap/arp-a.mid",
+      "role": "arpeggio",
+      "study_id": "s07",
+      "variation": "a"
+    },
+    {
+      "bpm": 96,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s07.harmony.a",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s07-wide-leap/harmony-a.mid",
+      "role": "harmonic-reference",
+      "study_id": "s07",
+      "variation": "a"
+    },
+    {
+      "bpm": 96,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s07.arp.b",
+      "monophonic": true,
+      "notes": 48,
+      "path": "midi/s07-wide-leap/arp-b.mid",
+      "role": "arpeggio",
+      "study_id": "s07",
+      "variation": "b"
+    },
+    {
+      "bpm": 96,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s07.harmony.b",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s07-wide-leap/harmony-b.mid",
+      "role": "harmonic-reference",
+      "study_id": "s07",
+      "variation": "b"
+    },
+    {
+      "bpm": 118,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s08.arp.a",
+      "monophonic": true,
+      "notes": 96,
+      "path": "midi/s08-pair-and-hold/arp-a.mid",
+      "role": "arpeggio",
+      "study_id": "s08",
+      "variation": "a"
+    },
+    {
+      "bpm": 118,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s08.harmony.a",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s08-pair-and-hold/harmony-a.mid",
+      "role": "harmonic-reference",
+      "study_id": "s08",
+      "variation": "a"
+    },
+    {
+      "bpm": 118,
+      "channel": 0,
+      "container_bars": 16,
+      "core": true,
+      "id": "s08.arp.b",
+      "monophonic": true,
+      "notes": 48,
+      "path": "midi/s08-pair-and-hold/arp-b.mid",
+      "role": "arpeggio",
+      "study_id": "s08",
+      "variation": "b"
+    },
+    {
+      "bpm": 118,
+      "channel": 1,
+      "container_bars": 16,
+      "core": false,
+      "id": "s08.harmony.b",
+      "monophonic": false,
+      "notes": 48,
+      "path": "midi/s08-pair-and-hold/harmony-b.mid",
+      "role": "harmonic-reference",
+      "study_id": "s08",
+      "variation": "b"
+    }
+  ],
+  "pitched_range": [
+    48,
+    84
+  ],
+  "ppq": 960,
+  "preview_part_ids": [
+    "s01.arp.a",
+    "s01.harmony.a"
+  ],
+  "range_statement": "Arpeggios are monophonic, MIDI 48 to 84. Harmonic references use MIDI 48 to 76, at most four notes, and are not part of the core count. C4 is 60.",
+  "reference_part_count": 16,
+  "seed_meaning": "Seeds identify studies. Nothing is random.",
+  "stack_warning": "Use either the combined arrangement or the separate parts. Do not stack the part files on top of the combined file.",
+  "stochastic_draws": 0,
+  "studies": [
+    {
+      "accent": "Velocity climbs inside the bar and peaks on the fifth attack. Phrase 3 adds another step to that peak.",
+      "bar_ticks": 3840,
+      "bars": 16,
+      "bpm": 112,
+      "change_bars": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "changes": [
+        "Am",
+        "F",
+        "C",
+        "G"
+      ],
+      "collection_name": "A natural minor",
+      "departures": [],
+      "effective_bpm": 112.00005973336519,
+      "harmonic_rhythm": "Source harmony: Am, F, C, G. Each chord lasts 4 bars.",
+      "id": "s01",
+      "identity": "Horizon Ladder moves through Am, F, C, G. Variation A is six eighths climbing from the downbeat, with a gap before each attack and a rest through beat 4. The register shifts with each chord. Variation B is the same six tones in reverse, entering on the second 16th and holding across the middle of the bar.",
+      "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.",
+      "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.",
+      "meter": "4/4",
+      "phrases": [
+        {
+          "bars": 4,
+          "name": "Climb",
+          "start_bar": 0
+        },
+        {
+          "bars": 4,
+          "name": "Lift",
+          "start_bar": 4
+        },
+        {
+          "bars": 4,
+          "name": "Crest",
+          "start_bar": 8
+        },
+        {
+          "bars": 4,
+          "name": "Cadence",
+          "start_bar": 12
+        }
+      ],
+      "pitch_classes": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        11
+      ],
+      "rhythm_a": "six eighths climbing from the downbeat, with a gap before each attack and a rest through beat 4",
+      "rhythm_b": "the same six tones in reverse, entering on the second 16th and holding across the middle of the bar",
+      "seed": 11201,
+      "slug": "s01-horizon-ladder",
+      "source_harmony": "The harmonic reference holds Am, F, C, G as written triads. It is a separate file and it is not part of the core count.",
+      "stochastic_draws": 0,
+      "tempo_us": 535714,
+      "title": "Horizon Ladder",
+      "tonal_reference": "A",
+      "tonic": "A",
+      "voicing": "The harmonic reference holds Am, F, C, G as written triads. It is a separate file and it is not part of the core count."
+    },
+    {
+      "accent": "The fourth dotted attack is the loud one. Each four-bar phrase raises that accent.",
+      "bar_ticks": 3840,
+      "bars": 16,
+      "bpm": 104,
+      "change_bars": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "changes": [
+        "Dm",
+        "Bb",
+        "F",
+        "C"
+      ],
+      "collection_name": "D natural minor",
+      "departures": [],
+      "effective_bpm": 104.00001386666851,
+      "harmonic_rhythm": "Source harmony: Dm, Bb, F, C. Each chord lasts 4 bars.",
+      "id": "s02",
+      "identity": "Dotted Gate moves through Dm, Bb, F, C. Variation A is five attacks on a dotted-eighth grid, each shorter than the grid so the notes do not touch. The register shifts with each chord. Variation B is four attacks: two quarters, a short answer, and a quarter, leaping octaves instead of climbing.",
+      "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.",
+      "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.",
+      "meter": "4/4",
+      "phrases": [
+        {
+          "bars": 4,
+          "name": "Gate",
+          "start_bar": 0
+        },
+        {
+          "bars": 4,
+          "name": "Answer",
+          "start_bar": 4
+        },
+        {
+          "bars": 4,
+          "name": "Octave",
+          "start_bar": 8
+        },
+        {
+          "bars": 4,
+          "name": "Land",
+          "start_bar": 12
+        }
+      ],
+      "pitch_classes": [
+        0,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10
+      ],
+      "rhythm_a": "five attacks on a dotted-eighth grid, each shorter than the grid so the notes do not touch",
+      "rhythm_b": "four attacks: two quarters, a short answer, and a quarter, leaping octaves instead of climbing",
+      "seed": 10402,
+      "slug": "s02-dotted-gate",
+      "source_harmony": "The harmonic reference holds Dm, Bb, F, C as written triads. It is a separate file and it is not part of the core count.",
+      "stochastic_draws": 0,
+      "tempo_us": 576923,
+      "title": "Dotted Gate",
+      "tonal_reference": "D",
+      "tonic": "D",
+      "voicing": "The harmonic reference holds Dm, Bb, F, C as written triads. It is a separate file and it is not part of the core count."
+    },
+    {
+      "accent": "In phrases 1 and 3 the short turn is loudest. In phrases 2 and 4 the held note is loudest.",
+      "bar_ticks": 3840,
+      "bars": 16,
+      "bpm": 120,
+      "change_bars": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "changes": [
+        "Em",
+        "C",
+        "G",
+        "D"
+      ],
+      "collection_name": "E natural minor",
+      "departures": [],
+      "effective_bpm": 120.0,
+      "harmonic_rhythm": "Source harmony: Em, C, G, D. Each chord lasts 4 bars.",
+      "id": "s03",
+      "identity": "Turn and Hold moves through Em, C, G, D. Variation A is a long downbeat, two short turns, then a held note through beat 4. The register shifts with each chord. Variation B is the turn moves to the front of the bar and the held note moves to beat 4.",
+      "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.",
+      "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.",
+      "meter": "4/4",
+      "phrases": [
+        {
+          "bars": 4,
+          "name": "Plate",
+          "start_bar": 0
+        },
+        {
+          "bars": 4,
+          "name": "Turn",
+          "start_bar": 4
+        },
+        {
+          "bars": 4,
+          "name": "Rise",
+          "start_bar": 8
+        },
+        {
+          "bars": 4,
+          "name": "Hold",
+          "start_bar": 12
+        }
+      ],
+      "pitch_classes": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        9,
+        11
+      ],
+      "rhythm_a": "a long downbeat, two short turns, then a held note through beat 4",
+      "rhythm_b": "the turn moves to the front of the bar and the held note moves to beat 4",
+      "seed": 12003,
+      "slug": "s03-turn-and-hold",
+      "source_harmony": "The harmonic reference holds Em, C, G, D as written triads. It is a separate file and it is not part of the core count.",
+      "stochastic_draws": 0,
+      "tempo_us": 500000,
+      "title": "Turn and Hold",
+      "tonal_reference": "E",
+      "tonic": "E",
+      "voicing": "The harmonic reference holds Em, C, G, D as written triads. It is a separate file and it is not part of the core count."
+    },
+    {
+      "accent": "The held note gets louder on every bar. Variation B puts that growing accent on beat 1.",
+      "bar_ticks": 3840,
+      "bars": 8,
+      "bpm": 100,
+      "change_bars": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "changes": [
+        "Bm",
+        "G",
+        "D",
+        "A"
+      ],
+      "collection_name": "B natural minor",
+      "departures": [],
+      "effective_bpm": 100.0,
+      "harmonic_rhythm": "Source harmony: Bm, G, D, A. Each chord lasts 2 bars.",
+      "id": "s04",
+      "identity": "Held Peak moves through Bm, G, D, A. Variation A is two short pickups and one held peak, then silence for the rest of the bar. The register shifts with each chord. Variation B is the held peak moves onto the downbeat and the pickups answer after beat 3.",
+      "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.",
+      "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.",
+      "meter": "4/4",
+      "phrases": [
+        {
+          "bars": 2,
+          "name": "Bloom",
+          "start_bar": 0
+        },
+        {
+          "bars": 2,
+          "name": "Open",
+          "start_bar": 2
+        },
+        {
+          "bars": 2,
+          "name": "Leap",
+          "start_bar": 4
+        },
+        {
+          "bars": 2,
+          "name": "Peak",
+          "start_bar": 6
+        }
+      ],
+      "pitch_classes": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        11
+      ],
+      "rhythm_a": "two short pickups and one held peak, then silence for the rest of the bar",
+      "rhythm_b": "the held peak moves onto the downbeat and the pickups answer after beat 3",
+      "seed": 10004,
+      "slug": "s04-held-peak",
+      "source_harmony": "The harmonic reference holds Bm, G, D, A as written triads. It is a separate file and it is not part of the core count.",
+      "stochastic_draws": 0,
+      "tempo_us": 600000,
+      "title": "Held Peak",
+      "tonal_reference": "B",
+      "tonic": "B",
+      "voicing": "The harmonic reference holds Bm, G, D, A as written triads. It is a separate file and it is not part of the core count."
+    },
+    {
+      "accent": "The long offbeat after beat 3 is the peak in variation A. Variation B accents the opening octave.",
+      "bar_ticks": 3840,
+      "bars": 16,
+      "bpm": 124,
+      "change_bars": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "changes": [
+        "F#m",
+        "D",
+        "A",
+        "E"
+      ],
+      "collection_name": "F# natural minor",
+      "departures": [],
+      "effective_bpm": 123.99999173333389,
+      "harmonic_rhythm": "Source harmony: F#m, D, A, E. Each chord lasts 4 bars.",
+      "id": "s05",
+      "identity": "Offbeat Shimmer moves through F#m, D, A, E. Variation A is five offbeat attacks. The downbeat is empty. The longest note sits after beat 3. The register shifts with each chord. Variation B is five on-beat attacks, with octave leaps and a short last 16th.",
+      "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.",
+      "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.",
+      "meter": "4/4",
+      "phrases": [
+        {
+          "bars": 4,
+          "name": "Shimmer",
+          "start_bar": 0
+        },
+        {
+          "bars": 4,
+          "name": "Push",
+          "start_bar": 4
+        },
+        {
+          "bars": 4,
+          "name": "High",
+          "start_bar": 8
+        },
+        {
+          "bars": 4,
+          "name": "Fold",
+          "start_bar": 12
+        }
+      ],
+      "pitch_classes": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        11
+      ],
+      "rhythm_a": "five offbeat attacks. The downbeat is empty. The longest note sits after beat 3",
+      "rhythm_b": "five on-beat attacks, with octave leaps and a short last 16th",
+      "seed": 12405,
+      "slug": "s05-offbeat-shimmer",
+      "source_harmony": "The harmonic reference holds F#m, D, A, E as written triads. It is a separate file and it is not part of the core count.",
+      "stochastic_draws": 0,
+      "tempo_us": 483871,
+      "title": "Offbeat Shimmer",
+      "tonal_reference": "F#",
+      "tonic": "F#",
+      "voicing": "The harmonic reference holds F#m, D, A, E as written triads. It is a separate file and it is not part of the core count."
+    },
+    {
+      "accent": "For eight bars the accent sits on the third triplet. After that it moves to the last triplet.",
+      "bar_ticks": 3840,
+      "bars": 16,
+      "bpm": 108,
+      "change_bars": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "changes": [
+        "Cm",
+        "Ab",
+        "Eb",
+        "Bb"
+      ],
+      "collection_name": "C natural minor",
+      "departures": [],
+      "effective_bpm": 107.99991360006912,
+      "harmonic_rhythm": "Source harmony: Cm, Ab, Eb, Bb. Each chord lasts 4 bars.",
+      "id": "s06",
+      "identity": "Triplet Glow moves through Cm, Ab, Eb, Bb. Variation A is six triplet eighths with a short gap inside each triplet, not a sixteenth grid. The register shifts with each chord. Variation B is four duple attacks. The last of them is the 9th above the same triad.",
+      "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.",
+      "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.",
+      "meter": "4/4",
+      "phrases": [
+        {
+          "bars": 4,
+          "name": "Glow",
+          "start_bar": 0
+        },
+        {
+          "bars": 4,
+          "name": "Cycle",
+          "start_bar": 4
+        },
+        {
+          "bars": 4,
+          "name": "Color",
+          "start_bar": 8
+        },
+        {
+          "bars": 4,
+          "name": "Resolve",
+          "start_bar": 12
+        }
+      ],
+      "pitch_classes": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10
+      ],
+      "rhythm_a": "six triplet eighths with a short gap inside each triplet, not a sixteenth grid",
+      "rhythm_b": "four duple attacks. The last of them is the 9th above the same triad",
+      "seed": 10806,
+      "slug": "s06-triplet-glow",
+      "source_harmony": "The harmonic reference holds Cm, Ab, Eb, Bb as written triads. It is a separate file and it is not part of the core count.",
+      "stochastic_draws": 0,
+      "tempo_us": 555556,
+      "title": "Triplet Glow",
+      "tonal_reference": "C",
+      "tonic": "C",
+      "voicing": "The harmonic reference holds Cm, Ab, Eb, Bb as written triads. It is a separate file and it is not part of the core count."
+    },
+    {
+      "accent": "The upper leap grows louder across all 16 bars. The lower note stays quiet.",
+      "bar_ticks": 3840,
+      "bars": 16,
+      "bpm": 96,
+      "change_bars": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "changes": [
+        "Gm",
+        "Eb",
+        "Bb",
+        "F"
+      ],
+      "collection_name": "G natural minor",
+      "departures": [
+        "Variation B bar 16 uses F#4 (66) once, between F3 and C4, under the F chord. It is flagged."
+      ],
+      "effective_bpm": 96.0,
+      "harmonic_rhythm": "Source harmony: Gm, Eb, Bb, F. Each chord lasts 4 bars.",
+      "id": "s07",
+      "identity": "Wide Leap moves through Gm, Eb, Bb, F. Variation A is two notes per bar, after the downbeat and on beat 3, with a long gap between them. The register shifts with each chord. Variation B is three notes that start on the downbeat variation A left empty.",
+      "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.",
+      "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.",
+      "meter": "4/4",
+      "phrases": [
+        {
+          "bars": 4,
+          "name": "Leap",
+          "start_bar": 0
+        },
+        {
+          "bars": 4,
+          "name": "Span",
+          "start_bar": 4
+        },
+        {
+          "bars": 4,
+          "name": "Wide",
+          "start_bar": 8
+        },
+        {
+          "bars": 4,
+          "name": "Close",
+          "start_bar": 12
+        }
+      ],
+      "pitch_classes": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10
+      ],
+      "rhythm_a": "two notes per bar, after the downbeat and on beat 3, with a long gap between them",
+      "rhythm_b": "three notes that start on the downbeat variation A left empty",
+      "seed": 9607,
+      "slug": "s07-wide-leap",
+      "source_harmony": "The harmonic reference holds Gm, Eb, Bb, F as written triads. It is a separate file and it is not part of the core count.",
+      "stochastic_draws": 0,
+      "tempo_us": 625000,
+      "title": "Wide Leap",
+      "tonal_reference": "G",
+      "tonic": "G",
+      "voicing": "The harmonic reference holds Gm, Eb, Bb, F as written triads. It is a separate file and it is not part of the core count."
+    },
+    {
+      "accent": "The sixteenth pairs stay soft. The final hold is louder in the second half of the study.",
+      "bar_ticks": 3840,
+      "bars": 16,
+      "bpm": 118,
+      "change_bars": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "changes": [
+        "Fm",
+        "Db",
+        "Ab",
+        "Eb"
+      ],
+      "collection_name": "F natural minor",
+      "departures": [],
+      "effective_bpm": 117.99990166674861,
+      "harmonic_rhythm": "Source harmony: Fm, Db, Ab, Eb. Each chord lasts 4 bars.",
+      "id": "s08",
+      "identity": "Pair and Hold moves through Fm, Db, Ab, Eb. Variation A is a pair of sixteenths, a longer leap, another sixteenth pair, then a hold. The bar is not a continuous sixteenth line. The register shifts with each chord. Variation B is three notes only: a late pickup, a short leap, and a hold. The sixteenth pairs are gone.",
+      "layering": "One arpeggio channel. The chord is the harmonic reference on its own channel and in its own file. Do not merge the two files into one part.",
+      "limitations": "Pair arpeggio A with harmonic reference A, and B with B. The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. Variation A of the reference sounds for three beats and rests on beat 4. Variation B of the reference enters on beat 2. The arrangement is only study 01.",
+      "meter": "4/4",
+      "phrases": [
+        {
+          "bars": 4,
+          "name": "Pair",
+          "start_bar": 0
+        },
+        {
+          "bars": 4,
+          "name": "Answer",
+          "start_bar": 4
+        },
+        {
+          "bars": 4,
+          "name": "Lift",
+          "start_bar": 8
+        },
+        {
+          "bars": 4,
+          "name": "Hold",
+          "start_bar": 12
+        }
+      ],
+      "pitch_classes": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        8,
+        10
+      ],
+      "rhythm_a": "a pair of sixteenths, a longer leap, another sixteenth pair, then a hold. The bar is not a continuous sixteenth line",
+      "rhythm_b": "three notes only: a late pickup, a short leap, and a hold. The sixteenth pairs are gone",
+      "seed": 11808,
+      "slug": "s08-pair-and-hold",
+      "source_harmony": "The harmonic reference holds Fm, Db, Ab, Eb as written triads. It is a separate file and it is not part of the core count.",
+      "stochastic_draws": 0,
+      "tempo_us": 508475,
+      "title": "Pair and Hold",
+      "tonal_reference": "F",
+      "tonic": "F",
+      "voicing": "The harmonic reference holds Fm, Db, Ab, Eb as written triads. It is a separate file and it is not part of the core count."
+    }
+  ]
+}

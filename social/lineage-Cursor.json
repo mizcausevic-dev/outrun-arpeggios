@@ -1,0 +1,47 @@
+{
+  "commands": {
+    "card": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/home/runner/work/outrun-arpeggios/outrun-arpeggios/art/hero.jpg",
+      "-vf",
+      "scale=1600:900",
+      "-q:v",
+      "3",
+      "/home/runner/work/outrun-arpeggios/outrun-arpeggios/social/x-Cursor/card.jpg"
+    ],
+    "portrait": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/home/runner/work/outrun-arpeggios/outrun-arpeggios/art/square.jpg",
+      "-vf",
+      "crop=864:1080:108:0,scale=1080:1350",
+      "-q:v",
+      "3",
+      "/home/runner/work/outrun-arpeggios/outrun-arpeggios/social/instagram-Cursor/portrait.jpg"
+    ]
+  },
+  "hero": "JPEG of the 1280x720 sunset-grid framing. The film plate is a JPEG of the same PPM, made before this final hero file was written.",
+  "instagram_portrait": "crop=864:1080:108:0 of the square still, then scale to 1080x1350.",
+  "instagram_square": "Byte copy of art/square.jpg.",
+  "instagram_square_sha256": "403c1b31c77f92e206d6cd7a867b4fe4136ac992a5aeb70ff8f7632bd834a7a7",
+  "painter": "tools/render_visual.py paint()",
+  "poster_command": [
+    "ffmpeg",
+    "-y",
+    "-i",
+    "/home/runner/work/outrun-arpeggios/outrun-arpeggios/art/hero.jpg",
+    "-vf",
+    "drawtext=textfile=/home/runner/work/outrun-arpeggios/outrun-arpeggios/build/onpicture.txt:fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:fontsize=48:fontcolor=white:x=(w-text_w)/2:y=h-100:box=1:boxcolor=black@0.68:boxborderw=22",
+    "-frames:v",
+    "1",
+    "-q:v",
+    "3",
+    "/home/runner/work/outrun-arpeggios/outrun-arpeggios/film/poster.jpg"
+  ],
+  "square": "JPEG of the 1080x1080 square framing of the same painter. Not a scale of the hero.",
+  "square_sha256": "403c1b31c77f92e206d6cd7a867b4fe4136ac992a5aeb70ff8f7632bd834a7a7",
+  "x_card": "scale the 1280x720 hero to 1600x900."
+}

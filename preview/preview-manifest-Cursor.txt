@@ -1,0 +1,61 @@
+preview, not a master
+{
+  "arrangement_path": "midi/arrangement.mid",
+  "arrangement_sha256": "4713201919e9aa13b32e9f91dee477b77a81f5a00eed249206f6857dded0f5b0",
+  "encode": "libmp3lame CBR 192 kbps, mono source",
+  "excerpt": {
+    "bars": "1-16, the full container",
+    "end_tick": 61440,
+    "sequencing": "arpeggio and harmonic reference, variation A, for the full 16 bars. The reference is cataloged and is not merged into the arpeggio file.",
+    "start_tick": 0,
+    "study": "s01",
+    "transposition": "none"
+  },
+  "intermediate_wav": "build/preview.wav",
+  "intermediate_wav_note": "The WAV is gitignored build storage. The delivered preview is the MP3.",
+  "intermediate_wav_sha256": "77f243c5575c25918404bcd80e059d8d373049f9b5abbb687e69d472d128e6e8",
+  "label": "preview, not a master",
+  "listening": "No human listening audition was performed for this build.",
+  "mapping": {
+    "arpeggio": "short square-sine pluck. Velocity scales the level, so written accents stay audible. The note ends at the written duration.",
+    "harmonic-reference": "quiet sine plus a little triangle, held for the written chord duration."
+  },
+  "mp3_encode_command": [
+    "ffmpeg",
+    "-y",
+    "-i",
+    "/home/runner/work/outrun-arpeggios/outrun-arpeggios/build/preview.wav",
+    "-codec:a",
+    "libmp3lame",
+    "-b:a",
+    "192k",
+    "/home/runner/work/outrun-arpeggios/outrun-arpeggios/preview/preview.mp3"
+  ],
+  "mp3_path": "preview/preview.mp3",
+  "mp3_sha256": "ed63837285526f2ebfe29653fe20d2e9b990cd04a996bab772b324c2a1b3debd",
+  "pack_id": "outrun-arpeggios",
+  "program_changes": "No program changes are encoded. A conventional GM player will normally use its default piano program for pitched channels unless configured otherwise; compatible GM channel 10 percussion is treated separately. Player behavior may vary.",
+  "renderer": "simple-synth-1.0.0",
+  "renderer_note": "These voices are preview mappings. They are not encoded in the MIDI file.",
+  "rounding": "sample = floor(seconds * sample_rate + 0.5), computed from tick 0; intervals are not summed",
+  "sample_peak": 14501,
+  "sample_peak_dbfs": -7.08103964827842,
+  "sample_peak_note": "This is a sample peak of the integer mix after scaling. It is not a true-peak measurement and it is not LUFS.",
+  "score_seconds": 34.285696,
+  "score_sha256": "fc82c0bddba11aed14c2f70ef8ee5b9eab8fc3c66269483910841dd1523bdaf2",
+  "seconds_encoded": 34.285692,
+  "source_parts": [
+    {
+      "id": "s01.arp.a",
+      "path": "midi/s01-horizon-ladder/arp-a.mid",
+      "sha256": "90a90f69d31f6a86597839e837e9e11461c583a26f1dc2a03ea3b83b86e4e548"
+    },
+    {
+      "id": "s01.harmony.a",
+      "path": "midi/s01-horizon-ladder/harmony-a.mid",
+      "sha256": "e855066b8b3acc49dbac6e55b445bced35a87924d583af2a70ad5b682b224e2b"
+    }
+  ],
+  "tempo_authority": "encoded MIDI tempo",
+  "tempo_us": 535714
+}

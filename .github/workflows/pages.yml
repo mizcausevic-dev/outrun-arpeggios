@@ -31,8 +31,28 @@ jobs:
           grep -q "Outrun Arpeggios" _site/index.html
           grep -q "preview, not a master" _site/index.html
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Prefer the gh-pages branch
+        id: source
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          gh api --method PUT "repos/${{ github.repository }}/pages" --input - <<'EOF'
+          {"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}
+          EOF
+          code=$?
+          set -e
+          if [ "$code" -eq 0 ]; then
+            echo "mode=legacy" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=actions" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/upload-pages-artifact@v3
+        if: steps.source.outputs.mode == 'actions'
         with:
           path: _site
       - id: deployment
+        if: steps.source.outputs.mode == 'actions'
         uses: actions/deploy-pages@v4

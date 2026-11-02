@@ -143,6 +143,7 @@ def render_page(catalog: dict, report: dict, preview: dict, film: dict) -> str:
     }}
     .hero {{ margin: 0; }}
     figcaption, .meta {{ color: var(--muted); font-size: .82rem; }}
+    p.keyline {{ color: var(--gold); font-size: 1.2rem; margin: 4px 0 12px; }}
     .deck {{
       display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 22px;
       margin-top: 22px; align-items: start;
@@ -208,6 +209,7 @@ def render_page(catalog: dict, report: dict, preview: dict, film: dict) -> str:
         <a href="midi/arrangement.mid">Arrangement</a>
       </nav>
     </header>
+    <p class="keyline" id="facts"></p>
     <figure class="hero">
       <img src="art/hero.jpg" width="1280" height="720" alt="Illustration of a sunset grid with a skyline of arpeggio accents. Not a photograph of a studio or of performers.">
       <figcaption>Illustration of a sunset grid. The skyline follows an accent contour. Not a photograph.</figcaption>
@@ -218,7 +220,6 @@ def render_page(catalog: dict, report: dict, preview: dict, film: dict) -> str:
         <p class="kicker" id="kicker"></p>
         <h1 id="title">Horizon Ladder</h1>
         <p id="identity"></p>
-        <p class="meta" id="facts"></p>
         <p id="rhythm"></p>
         <p id="source"></p>
         <p id="accent-copy"></p>

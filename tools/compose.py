@@ -241,18 +241,86 @@ def _paint_arp(part, pattern):
             part.add(bar_index * BAR + offset, duration, pitch, velocity, departure=departure)
 
 
+def _block(start, duration, pitches, velocities):
+    return (start, duration, list(pitches), list(velocities))
+
+
+def _lift(pitches, bars_when, bar):
+    if bar // 4 in bars_when and all(pitch + 12 <= 76 for pitch in pitches):
+        return [pitch + 12 for pitch in pitches]
+    return list(pitches)
+
+
+def _custom_harmony(study_id, variation, region, bar):
+    """Study-specific reference voicings. None means the shared close/open block."""
+    phrase = bar // 4
+    if study_id == "s01" and variation == "a":
+        pitches = _lift(region["close"], (1, 3), bar)
+        boost = (0, 4, 6, 2)[phrase]
+        return [_block(0, 2520, pitches, [min(124, value + boost) for value in (60, 74, 90)])]
+    if study_id == "s03" and variation == "a":
+        root, third, fifth = region["close"]
+        # First inversion: third, fifth, root an octave up when it fits.
+        top = root + 12 if root + 12 <= 76 else root
+        boost = (0, 0, 6, 0)[phrase]
+        return [_block(480, 1800, [third, fifth, top], [min(120, value + boost) for value in (88, 64, 76)])]
+    if study_id == "s03" and variation == "b":
+        root, third, fifth = region["close"]
+        top = root + 12 if root + 12 <= 76 else root
+        return [_block(0, 480, [third, fifth, top], (110, 100, 90))]
+    if study_id == "s05" and variation == "a":
+        root, third, fifth = region["close"]
+        upper_root = root + 12 if root + 12 <= 76 else root
+        upper_third = third + 12 if third + 12 <= 76 else third
+        bass_vel = min(120, 96 + phrase * 4)
+        return [
+            _block(240, 1200, [fifth], [bass_vel]),
+            _block(960, 1500, [upper_root, upper_third], (62, 70)),
+        ]
+    if study_id == "s05" and variation == "b":
+        root, third, fifth = region["close"]
+        upper_root = root + 12 if root + 12 <= 76 else root
+        upper_third = third + 12 if third + 12 <= 76 else third
+        return [_block(960, 2400, [fifth, upper_root, upper_third], (52, 60, 70))]
+    if study_id == "s07" and variation == "a":
+        root, third, fifth = region["close"]
+        high = fifth + 12 if fifth + 12 <= 76 else fifth
+        top = 122 if phrase == 3 else 112
+        return [_block(1920, 1200, [root, third, high], (72, 80, top))]
+    if study_id == "s07" and variation == "b":
+        root, third, fifth = region["close"]
+        return [
+            _block(0, 500, [root], [84]),
+            _block(1440, 500, [fifth], [92]),
+            _block(2880, 600, [third], [108]),
+        ]
+    if study_id == "s08" and variation == "a":
+        root, third, fifth = region["close"]
+        return [
+            _block(0, 840, [root, fifth], (66, 78)),
+            _block(1680, 600, [third], [104]),
+        ]
+    if study_id == "s08" and variation == "b":
+        root, third, fifth = region["close"]
+        return [_block(1440, 1600, [fifth, root + 12 if root + 12 <= 76 else root, third + 12 if third + 12 <= 76 else third], (70, 86, 58))]
+    return None
+
+
 def _paint_harmony(part):
     study = part.study
     for bar_index in range(study["bars"]):
         region = _region(study, bar_index)
-        if part.variation == "a":
-            pitches = region["close"]
-            start, duration, velocity = 0, 2880, 66 + (bar_index // 4) * 4
-        else:
-            pitches = region["open"]
-            start, duration, velocity = 960, 1920, 58 + (bar_index // 4) * 3
-        for pitch in pitches:
-            part.add(bar_index * BAR + start, duration, pitch, min(96, velocity))
+        custom = _custom_harmony(study["id"], part.variation, region, bar_index)
+        if custom is None:
+            if part.variation == "a":
+                custom = [_block(0, 2880, region["close"], [min(96, 66 + (bar_index // 4) * 4)] * 3)]
+            else:
+                custom = [_block(960, 1920, region["open"], [min(96, 58 + (bar_index // 4) * 3)] * 3)]
+        for start, duration, pitches, velocities in custom:
+            if len(pitches) != len(velocities):
+                raise ValueError(f"{part.part_id} voicing length")
+            for pitch, velocity in zip(pitches, velocities):
+                part.add(bar_index * BAR + start, duration, pitch, velocity)
 
 
 def _build(study):
@@ -313,7 +381,7 @@ def studies():
             "tonic": "A", "tonal_reference": "A", "collection_name": "A natural minor",
             "pitch_classes": [0, 2, 4, 5, 7, 9, 11], "seed": 11201,
             "rhythm_a": "six eighths climbing from the downbeat, with a gap before each attack and a rest through beat 4",
-            "rhythm_b": "the same six tones in reverse, entering on the second 16th and holding across the middle of the bar",
+            "rhythm_b": "a descent from the high chord tones, entering on the second 16th. It is not the reverse of the same bar of variation A. In the opening phrase, bar 1 of B is the reverse of bar 4 of A",
             "accent": "Velocity climbs inside the bar and peaks on the fifth attack. Phrase 3 adds another step to that peak.",
             "color_pcs": [],
             "regions": [
@@ -474,9 +542,21 @@ def studies():
         row["phrases"] = list(phrase_8 if row["bars"] == 8 else phrases_16[index])
         names = ", ".join(row["changes"])
         row["harmonic_rhythm"] = f"Source harmony: {names}. Each chord lasts {row['change_bars'][0]} bars."
+        reference_shapes = {
+            "s01": "Variation A stacks a close triad from the downbeat, louder on the top note. F and G sit an octave higher than Am and C.",
+            "s03": "Variation A is first inversion and enters on the second eighth. Variation B is a short downbeat stab of that inversion.",
+            "s05": "Variation A puts the fifth in the bass, then the upper two tones. Variation B holds that second inversion from beat 2.",
+            "s07": "Variation A is a spread triad on beat 3 with the top tone accented. Variation B spells the chord as three separate notes.",
+            "s08": "Variation A is a root and fifth, then the third alone. Variation B is a second-inversion block from beat 2.",
+        }
+        shared_reference = (
+            "Variation A holds the triad for three beats and rests on beat 4. "
+            "Variation B enters on beat 2."
+        )
         row["source_harmony"] = (
             f"The harmonic reference holds {names} as written triads. "
-            "It is a separate file and it is not part of the core count."
+            "It is a separate file and it is not part of the core count. "
+            + reference_shapes.get(row["id"], shared_reference)
         )
         row["identity"] = (
             f"{row['title']} moves through {names}. Variation A is {row['rhythm_a']}. "
@@ -485,8 +565,7 @@ def studies():
         row["limitations"] = (
             "Pair arpeggio A with harmonic reference A, and B with B. "
             "The arpeggio is monophonic and leaves gaps, so notes inside that file do not overlap. "
-            "Variation A of the reference sounds for three beats and rests on beat 4. "
-            "Variation B of the reference enters on beat 2. The arrangement is only study 01."
+            "The harmonic reference keeps its own voicing and timing. The arrangement is only study 01."
         )
         row["voicing"] = row["source_harmony"]
         row["layering"] = (
@@ -519,6 +598,25 @@ def _continuous_sixteenths(notes, bars):
     for note in notes:
         grouped[note["performed_start"] // BAR].append(note["performed_start"] % BAR)
     return all(tuple(sorted(group)) == template for group in grouped)
+
+
+def _reject_transposed_clones(parts, ids):
+    by_id = {part["id"]: part for part in parts}
+    for index, left_id in enumerate(ids):
+        left = sorted(by_id[left_id]["notes"], key=lambda note: (note["performed_start"], note["pitch"]))
+        for right_id in ids[index + 1:]:
+            right = sorted(by_id[right_id]["notes"], key=lambda note: (note["performed_start"], note["pitch"]))
+            if len(left) != len(right):
+                continue
+            same_time = all(
+                a["performed_start"] == b["performed_start"]
+                and a["duration"] == b["duration"]
+                and a["velocity"] == b["velocity"]
+                for a, b in zip(left, right)
+            )
+            deltas = {b["pitch"] - a["pitch"] for a, b in zip(left, right)}
+            if same_time and len(deltas) == 1:
+                raise ValueError(f"{left_id} and {right_id} are one voicing moved by {deltas.pop()}")
 
 
 def assert_music(catalog_studies, parts):
@@ -572,6 +670,12 @@ def assert_music(catalog_studies, parts):
         })
     if len(tuples) != 8:
         raise ValueError("variation A attack tuples are not eight distinct patterns")
+    _reject_transposed_clones(parts, [
+        "s01.harmony.a", "s03.harmony.a", "s05.harmony.a", "s07.harmony.a", "s08.harmony.a",
+    ])
+    _reject_transposed_clones(parts, [
+        "s03.harmony.b", "s05.harmony.b", "s07.harmony.b", "s08.harmony.b",
+    ])
     return {
         "studies": report,
         "method": "Variation A attack-time tuples differ across the eight studies. No study uses a continuous sixteenth-note template. Variation B changes rhythm and contour, not only velocity.",

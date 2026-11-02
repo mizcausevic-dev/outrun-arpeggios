@@ -5,11 +5,11 @@
     "format": 1,
     "path": "midi/arrangement.mid",
     "ppq": 960,
-    "sha256": "4713201919e9aa13b32e9f91dee477b77a81f5a00eed249206f6857dded0f5b0",
+    "sha256": "eefe64a6d52e5ae82c4b9673e6d4bbb1dcfedda3a79f5acf6d76d0e1b231a458",
     "tracks": 3
   },
   "catalog_path": "catalog/catalog-Cursor.json",
-  "catalog_sha256": "8b7f22cc2fffd77072277ef4442e625d5ae1bb82386d52fba460f7be1913d0e6",
+  "catalog_sha256": "cd14407816cd2fbe297e514042a4a72c54bb77da0c511558e8f835b40a618e06",
   "errors": [],
   "files": [
     {
@@ -68,7 +68,7 @@
       "requested_bpm": 112,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "e855066b8b3acc49dbac6e55b445bced35a87924d583af2a70ad5b682b224e2b",
+      "sha256": "846833e19baa47fdcdd3a692d5508d7b1554540f1b1df9c0775f443d70d25380",
       "tempo_us": 535714,
       "tracks": 1
     },
@@ -283,7 +283,7 @@
       "tracks": 1
     },
     {
-      "bytes": 479,
+      "bytes": 480,
       "channels": [
         1
       ],
@@ -308,7 +308,7 @@
       "requested_bpm": 120,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "1da3cbf20973c2b39e0adf7ac901261625d8ea2699ad8d6beddecd09b5812cd0",
+      "sha256": "83dfe1c73b49ec2f5ffc16ad209a4c7c1beecc335f34b2c50d34829e417aa62c",
       "tempo_us": 500000,
       "tracks": 1
     },
@@ -343,7 +343,7 @@
       "tracks": 1
     },
     {
-      "bytes": 480,
+      "bytes": 479,
       "channels": [
         1
       ],
@@ -368,7 +368,7 @@
       "requested_bpm": 120,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "1464de154d20685b317d4edca2a67552d3113866753a2acbf06bb36cd3a5ea5a",
+      "sha256": "053a1c776335669cc87baa56aef87fb54def03e2fe63966255390c7f9f9d3412",
       "tempo_us": 500000,
       "tracks": 1
     },
@@ -523,7 +523,7 @@
       "tracks": 1
     },
     {
-      "bytes": 479,
+      "bytes": 512,
       "channels": [
         1
       ],
@@ -548,7 +548,7 @@
       "requested_bpm": 124,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "edd045937f394b864b83f2d990a030993cc2553ad192676778b4524c201fd3af",
+      "sha256": "1fe24412c56dbca45448d939452ccffb893f59b43801a892598ad44bb6dd24d9",
       "tempo_us": 483871,
       "tracks": 1
     },
@@ -608,7 +608,7 @@
       "requested_bpm": 124,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "99624c9d31f99a554002ef4462e5f82234e4ad3945cd3748a1cd4237357785ff",
+      "sha256": "1a3266a62d6370544e97f4d4045261b7b6b6a6ee579a1238f1f667c71ec98bc2",
       "tempo_us": 483871,
       "tracks": 1
     },
@@ -763,7 +763,7 @@
       "tracks": 1
     },
     {
-      "bytes": 479,
+      "bytes": 480,
       "channels": [
         1
       ],
@@ -788,7 +788,7 @@
       "requested_bpm": 96,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "e93cbc888694805a7359db115a613fa3a596a4cfa43dd2e9078cc8430c4783db",
+      "sha256": "8e45f24439fc99fc1415826fd9ac8d53482b1d2c70db3a8a75862d453d95ba65",
       "tempo_us": 625000,
       "tracks": 1
     },
@@ -824,7 +824,7 @@
       "tracks": 1
     },
     {
-      "bytes": 480,
+      "bytes": 543,
       "channels": [
         1
       ],
@@ -841,7 +841,7 @@
       "departures": 0,
       "effective_bpm": 96.0,
       "format": 0,
-      "max_polyphony": 3,
+      "max_polyphony": 1,
       "meter": "4/4",
       "notes": 48,
       "path": "midi/s07-wide-leap/harmony-b.mid",
@@ -849,7 +849,7 @@
       "requested_bpm": 96,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "43caaffdf61e23de0405398bb30fd6864850322f11239bd10b13ff618a5f2476",
+      "sha256": "6767ed48250fea2a80fc485a9d91dd1bd223860b8219ad9e8a6c1de96378d92b",
       "tempo_us": 625000,
       "tracks": 1
     },
@@ -884,7 +884,7 @@
       "tracks": 1
     },
     {
-      "bytes": 479,
+      "bytes": 511,
       "channels": [
         1
       ],
@@ -901,7 +901,7 @@
       "departures": 0,
       "effective_bpm": 117.99990166674861,
       "format": 0,
-      "max_polyphony": 3,
+      "max_polyphony": 2,
       "meter": "4/4",
       "notes": 48,
       "path": "midi/s08-pair-and-hold/harmony-a.mid",
@@ -909,7 +909,7 @@
       "requested_bpm": 118,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "ee3b76d9e3ae5565193171e1fa1b1b1fa50ec0b8a4d6b343093a127791da8187",
+      "sha256": "6ae0a34e8a6e90c594f202c91d25b9feef1c7ebaae4e438cc2c9af4bcdeea809",
       "tempo_us": 508475,
       "tracks": 1
     },
@@ -969,7 +969,7 @@
       "requested_bpm": 118,
       "role": "harmonic-reference",
       "score_agreement": "PASS",
-      "sha256": "525ebf468cd851fce0c409e2f272cc18765374b33074a559d9751fa169fa2a90",
+      "sha256": "59dd80229722ef9cd0249657b57040f083774c91ddc97ca7c3636158804c9e1e",
       "tempo_us": 508475,
       "tracks": 1
     }
@@ -1274,6 +1274,6 @@
     "arrangement musical tracks match the individual files and carry no tempo"
   ],
   "score_path": "score/canonical-score-Cursor.json",
-  "score_sha256": "fc82c0bddba11aed14c2f70ef8ee5b9eab8fc3c66269483910841dd1523bdaf2",
+  "score_sha256": "d61a55dc177cd24329c302482810bdc9a253080f71527795869444f42902d9a0",
   "validator_version": "1.0.0"
 }

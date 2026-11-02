@@ -79,7 +79,7 @@
       "status": "PASS"
     },
     {
-      "evidence": "272 characters",
+      "evidence": "158 characters",
       "mandatory": true,
       "name": "X post draft under 280 characters",
       "status": "PASS"

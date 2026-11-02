@@ -3,7 +3,7 @@ This file is a draft. It has not been posted.
 
 Caption
 
-Outrun Arpeggios. Eight studies of register-aware arpeggios, with evolving accents and written chord changes. Two arpeggio variations each, note-only MIDI between 96 and 124 BPM. Harmonic references are separate files. The audio preview is a simple-synth render of study 01, not a master. No listening audition was performed for this build.
+Outrun Arpeggios. Eight studies, 96-124 BPM, two arpeggio variations each. Harmonic references are separate files, and their voicings are not one transposed shape. The study 01 preview is 34.286 seconds. preview, not a master. No human listening audition was performed for this build.
 
 Hashtags
 

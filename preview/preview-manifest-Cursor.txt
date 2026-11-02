@@ -1,7 +1,7 @@
 preview, not a master
 {
   "arrangement_path": "midi/arrangement.mid",
-  "arrangement_sha256": "4713201919e9aa13b32e9f91dee477b77a81f5a00eed249206f6857dded0f5b0",
+  "arrangement_sha256": "eefe64a6d52e5ae82c4b9673e6d4bbb1dcfedda3a79f5acf6d76d0e1b231a458",
   "encode": "libmp3lame CBR 192 kbps, mono source",
   "excerpt": {
     "bars": "1-16, the full container",
@@ -13,7 +13,7 @@ preview, not a master
   },
   "intermediate_wav": "build/preview.wav",
   "intermediate_wav_note": "The WAV is gitignored build storage. The delivered preview is the MP3.",
-  "intermediate_wav_sha256": "77f243c5575c25918404bcd80e059d8d373049f9b5abbb687e69d472d128e6e8",
+  "intermediate_wav_sha256": "e49539609e13e1497ef01a694c7cc5c0af9fd396a20c9ee81ecba463982f6168",
   "label": "preview, not a master",
   "listening": "No human listening audition was performed for this build.",
   "mapping": {
@@ -32,17 +32,17 @@ preview, not a master
     "/home/runner/work/outrun-arpeggios/outrun-arpeggios/preview/preview.mp3"
   ],
   "mp3_path": "preview/preview.mp3",
-  "mp3_sha256": "ed63837285526f2ebfe29653fe20d2e9b990cd04a996bab772b324c2a1b3debd",
+  "mp3_sha256": "5c0d9f8e6987aa9d980b40cbca20b4fd930ac2f87b733a9192158fc404991944",
   "pack_id": "outrun-arpeggios",
   "program_changes": "No program changes are encoded. A conventional GM player will normally use its default piano program for pitched channels unless configured otherwise; compatible GM channel 10 percussion is treated separately. Player behavior may vary.",
   "renderer": "simple-synth-1.0.0",
   "renderer_note": "These voices are preview mappings. They are not encoded in the MIDI file.",
   "rounding": "sample = floor(seconds * sample_rate + 0.5), computed from tick 0; intervals are not summed",
-  "sample_peak": 14501,
-  "sample_peak_dbfs": -7.08103964827842,
+  "sample_peak": 15067,
+  "sample_peak_dbfs": -6.748462933785704,
   "sample_peak_note": "This is a sample peak of the integer mix after scaling. It is not a true-peak measurement and it is not LUFS.",
   "score_seconds": 34.285696,
-  "score_sha256": "fc82c0bddba11aed14c2f70ef8ee5b9eab8fc3c66269483910841dd1523bdaf2",
+  "score_sha256": "d61a55dc177cd24329c302482810bdc9a253080f71527795869444f42902d9a0",
   "seconds_encoded": 34.285692,
   "source_parts": [
     {
@@ -53,7 +53,7 @@ preview, not a master
     {
       "id": "s01.harmony.a",
       "path": "midi/s01-horizon-ladder/harmony-a.mid",
-      "sha256": "e855066b8b3acc49dbac6e55b445bced35a87924d583af2a70ad5b682b224e2b"
+      "sha256": "846833e19baa47fdcdd3a692d5508d7b1554540f1b1df9c0775f443d70d25380"
     }
   ],
   "tempo_authority": "encoded MIDI tempo",

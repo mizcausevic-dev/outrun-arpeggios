@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from tools.article import TITLE, markdown, plain_text  # noqa: E402
+from tools.article import TITLE, markdown, plain_text, set_measured_preview  # noqa: E402
 from tools.audit import run_audit  # noqa: E402
 from tools.compose import GENERATOR_VERSION, compose  # noqa: E402
 from tools.page import write_page  # noqa: E402
@@ -37,12 +37,14 @@ from tools.statements import (  # noqa: E402
 )
 from tools.validate import dump_json, validate_tree, write_midi_files  # noqa: E402
 
-X_BODY = (
-    "Outrun Arpeggios: 8 studies of register-aware arpeggios, evolving accents, "
-    "and explicit chord changes. Two variations each. Note-only MIDI, 96-124 BPM. "
-    "Harmony references stay separate. Simple-synth preview of study 01 is not a master. "
-    "No listening audition was performed."
-)
+def x_body(seconds: float) -> str:
+    body = (
+        f"Outrun Arpeggios: 8 studies, 96-124 BPM, note-only MIDI. "
+        f"Study 01 is {seconds:.3f}s. {PREVIEW_LINE}. {AUDITION}"
+    )
+    if len(body) > 280 or "DRAFT" in body or AUDITION not in body or PREVIEW_LINE not in body:
+        raise RuntimeError(f"X body is {len(body)} characters")
+    return body
 
 
 def sha256_file(path: Path) -> str:
@@ -174,17 +176,17 @@ def write_identity(catalog: dict) -> None:
     (ROOT / "score" / "identity-Cursor.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-def write_social() -> None:
+def write_social(seconds: float) -> None:
     ig = ROOT / "social" / "instagram-Cursor"
     xdir = ROOT / "social" / "x-Cursor"
     ig.mkdir(parents=True, exist_ok=True)
     xdir.mkdir(parents=True, exist_ok=True)
-    caption = """DRAFT
+    caption = f"""DRAFT
 This file is a draft. It has not been posted.
 
 Caption
 
-Outrun Arpeggios. Eight studies of register-aware arpeggios, with evolving accents and written chord changes. Two arpeggio variations each, note-only MIDI between 96 and 124 BPM. Harmonic references are separate files. The audio preview is a simple-synth render of study 01, not a master. No listening audition was performed for this build.
+Outrun Arpeggios. Eight studies, 96-124 BPM, two arpeggio variations each. Harmonic references are separate files, and their voicings are not one transposed shape. The study 01 preview is {seconds:.3f} seconds. {PREVIEW_LINE}. {AUDITION}
 
 Hashtags
 
@@ -199,9 +201,10 @@ Alt text, 1080x1350
 Illustration of the same sunset grid, cropped from the square still and reframed as a vertical 1080 by 1350 image. Not a photograph of a studio or of performers.
 """
     (ig / "captions-Cursor.md").write_text(caption, encoding="utf-8")
-    post = f"DRAFT\nThis label is not the post body.\n\nPOST BODY\n{X_BODY}\n"
-    if len(X_BODY) > 280 or "DRAFT" in X_BODY:
-        raise RuntimeError(f"X body is {len(X_BODY)} characters")
+    body = x_body(seconds)
+    post = f"DRAFT\nThis label is not the post body.\n\nPOST BODY\n{body}\n"
+    if "DRAFT" in body:
+        raise RuntimeError("DRAFT leaked into the X body")
     (xdir / "post-Cursor.txt").write_text(post, encoding="utf-8")
     (xdir / "alt-text-Cursor.txt").write_text(
         "Illustration of a sunset grid and accent skyline, resized from the 1280 by 720 still. Not a photograph of a studio or of performers.\n",
@@ -242,8 +245,6 @@ The page is static. It has no form, no account system, and no secret. It links t
 
 
 def main() -> None:
-    if len(X_BODY) > 280:
-        raise SystemExit(f"X body {len(X_BODY)}")
     data = compose()
     dump_json(ROOT / "catalog" / "catalog-Cursor.json", data["catalog"])
     dump_json(ROOT / "score" / "canonical-score-Cursor.json", data["score"])
@@ -379,11 +380,12 @@ def main() -> None:
         raise SystemExit("on-picture textfile drifted")
     dump_json(ROOT / "film" / "film-manifest-Cursor.json", film_manifest)
 
+    set_measured_preview(mp3_probe["duration"])
     articles = ROOT / "articles"
     articles.mkdir(exist_ok=True)
     (articles / "medium-draft-Cursor.md").write_text(markdown(), encoding="utf-8")
     (articles / "medium-paste-Cursor.txt").write_text(plain_text(), encoding="utf-8")
-    write_social()
+    write_social(mp3_probe["duration"])
     write_identity(data["catalog"])
     write_page(ROOT / "index.html", data["catalog"], report, manifest, film_manifest)
     (ROOT / ".nojekyll").write_text("", encoding="utf-8")
@@ -405,7 +407,7 @@ def main() -> None:
     if checklist["result"] != "PASS":
         raise SystemExit(1)
     print("TITLE", TITLE)
-    print("X_BODY_CHARS", len(X_BODY))
+    print("X_BODY_CHARS", len(x_body(mp3_probe["duration"])))
 
 
 if __name__ == "__main__":

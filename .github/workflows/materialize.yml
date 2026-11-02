@@ -16,6 +16,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Pull rebase before the build
+        run: git pull --rebase origin main
+
       - name: Unpack generator
         run: |
           curl -fsSL --retry 5 --max-time 60 -o source.tar.gz "https://n.uguu.se/louQbhmp.tar.gz"
@@ -35,13 +38,13 @@ jobs:
         run: |
           git config user.name "mizcausevic-dev"
           git config user.email "mizcausevic-dev@users.noreply.github.com"
-          git pull --rebase origin main
           git add -A
           if git diff --cached --quiet; then
             echo "Tree already matches the build."
           else
             git commit -m "Materialize Outrun Arpeggios [skip ci]"
           fi
+          git pull --rebase origin main
           git fetch origin gh-pages
           if ! git merge-base --is-ancestor origin/gh-pages HEAD; then
             git merge origin/gh-pages -m "Merge gh-pages [skip ci]"

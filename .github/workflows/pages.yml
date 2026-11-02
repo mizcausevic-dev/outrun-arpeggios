@@ -1,0 +1,38 @@
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage the catalog
+        run: |
+          mkdir -p _site
+          tar --exclude=_site --exclude=.git -cf - . | tar -C _site -xf -
+          test -s _site/index.html
+          test -s _site/preview/preview.mp3
+          test -s _site/film/preview.mp4
+          grep -q "Outrun Arpeggios" _site/index.html
+          grep -q "preview, not a master" _site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

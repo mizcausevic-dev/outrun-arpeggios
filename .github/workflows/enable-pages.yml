@@ -14,4 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Update the gh-pages branch
-        run: git push origin HEAD:gh-pages
+        run: |
+          set +e
+          git push origin HEAD:gh-pages > /tmp/push.txt 2>&1
+          code=$?
+          message=$(tr '\n' ' ' < /tmp/push.txt)
+          echo "::error title=gh-pages push::$message"
+          exit $code
